@@ -1,0 +1,4 @@
+require 'factory_bot_rails'
+require './test/contexts'
+include Contexts 
+Hirb.enable

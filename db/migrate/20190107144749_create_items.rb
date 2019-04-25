@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.float :weight
       t.boolean :active
 
-      # t.timestamps
+      t.timestamps
     end
   end
 end
