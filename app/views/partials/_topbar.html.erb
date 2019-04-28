@@ -7,14 +7,17 @@
   </div>
   <div class="col s2">
     <% if logged_in? %>
-      <p> Welcome, <%= current_user.username%></p>
-      <%= link_to "LOGOUT", logout_path, class: "waves-effect waves-light btn" %>
-    <% else %>
-      <%= link_to "LOGIN", login_path, class: "waves-effect waves-light btn" %>
+      <p> Welcome, <%= current_user.username%>&nbsp;:&nbsp;<%= current_user.role%></p>
+    <% end %>
+  </div>
+  <div class="col s2">
+    <% unless current_page?(login_path) %>
+      <% if logged_in? %>
+        <%= link_to "LOGOUT", logout_path, class: "waves-effect waves-light btn" %>
+      <% else %>
+        <%= link_to "LOGIN", login_path, class: "waves-effect waves-light btn" %>
+      <% end %>
     <% end %>
   </div>
 
-  <div class="col s1">
-    &nbsp;
-  </div>
 </div>
