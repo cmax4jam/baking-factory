@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
     before_action :current_user, only: [:edit, :update]
     before_action :check_login, except: [:index, :show]
+
+    authorize_resource
   
     def new
       @user = User.new
