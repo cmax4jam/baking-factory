@@ -33,6 +33,7 @@ main {
 }
 
 #nav {
+  
   background-color: #8B5C10;
   height: 50px;
 }
@@ -40,6 +41,13 @@ main {
 #nav ul a {
   color: #ffd600;
   font-size: 1.2rem;
+}
+
+#topbar_image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 /********** FLASH MSGS ********/
