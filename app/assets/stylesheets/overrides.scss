@@ -30,6 +30,11 @@ main {
   padding-top: 5px;
   margin-bottom: 0px;
   color: #ffd600;
+  height: 75px;
+}
+
+#topbar .home_link {
+  font-size: 2.3rem;
 }
 
 #nav {
@@ -44,10 +49,14 @@ main {
 }
 
 #topbar_image {
-  display: block;
+  display: flex;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 50px;
+}
+
+#loginout {
+
 }
 
 /********** FLASH MSGS ********/

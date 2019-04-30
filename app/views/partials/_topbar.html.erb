@@ -5,21 +5,19 @@
   <div class="col s7">
     <h2><%= link_to "Baking Factory", home_path, class: "home_link" %></h2>
   </div>
-  <div class="col s2">
+  <div class="col s4">
     <% if logged_in? %>
       <p> Welcome, <%= current_user.username%>&nbsp;:&nbsp;<%= current_user.role%></p>
     <% end %>
-  </div>
-  <div class="col s3">
     <% unless current_page?(login_path) %>
       <% if logged_in? %>
-        <%= link_to "LOGOUT", logout_path, class: "waves-effect waves-light btn" %>
+        <%= link_to "LOGOUT", logout_path, class: "waves-effect waves-light btn", id: "loginout" %>
       <% else %>
-        <%= link_to "LOGIN", login_path, class: "waves-effect waves-light btn" %>
+        <%= link_to "LOGIN", login_path, class: "waves-effect waves-light btn", id: "loginout" %>
+        <%= link_to "REGISTER", new_customer_path, class: "waves-effect waves-light btn red"%>
       <% end %>
     <% end %>
   </div>
 
-  
 
 </div>

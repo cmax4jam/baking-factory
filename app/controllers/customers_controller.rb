@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
   include ActionView::Helpers::NumberHelper
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   # before_action :check_login
-  authorize_resource
+  #authorize_resource
 
   def index
     @active_customers = Customer.active.alphabetical.paginate(:page => params[:page]).per_page(10)
@@ -15,20 +15,26 @@ class CustomersController < ApplicationController
 
   def new
     @customer = Customer.new
+    user = @customer.build_user
   end
 
   def edit
     # reformat phone w/ dashes when displayed for editing (preference; not required)
     @customer.phone = number_to_phone(@customer.phone)
+    # should have a user associated with customer, but just in case...
+    user = (@customer.user.nil? ? @customer.build_user : @customer.user)
   end
 
   def create
     @customer = Customer.new(customer_params)
-    if @customer.save
-      redirect_to @customer, notice: "#{@customer.proper_name} was added to the system."
-    else
-      render action: 'new'
-    end
+    @customer.active = "true"
+    @customer.user.role = "customer"
+    @customer.user.active = "true"
+      if @customer.save
+        redirect_to @customer, notice: "#{@customer.proper_name} was added to the system."
+      else
+        render action: 'new'
+      end
   end
 
   def update
@@ -46,7 +52,7 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    params.require(:customer).permit(:first_name, :last_name, :email, :phone, :active)
+    params.require(:customer).permit(:first_name, :last_name, :email, :phone, :active, :id, user_attributes: [:username, :password, :password_confirmation])
   end
 
 end

@@ -21,4 +21,10 @@ class ApplicationController < ActionController::Base
     redirect_to home_path
   end
 
+  # handle 404 errors with an exception as well
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    flash[:error] = "Record Not Found"
+    redirect_to home_path
+  end
+
 end
