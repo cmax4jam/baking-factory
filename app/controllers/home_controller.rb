@@ -12,4 +12,10 @@ class HomeController < ApplicationController
   def contact
   end
 
+  def insights
+  end
+
+  def actions
+  end
+
 end

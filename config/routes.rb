@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :users
   resources :sessions
+  resources :items
 
   # Semi-static page routes
   get 'home' => 'home#home', as: :home
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
   get 'privacy' => 'home#privacy', as: :privacy
   get 'login' => 'sessions#new', :as => :login
   get 'logout' => 'sessions#destroy', :as => :logout
+  get 'insights' => 'home#admin_insights', :as => :admin_insights
+  get 'actions' => 'home#admin_actions', :as => :admin_actions
   
   # Set the root url
   root :to => 'home#home'

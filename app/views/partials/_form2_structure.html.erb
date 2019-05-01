@@ -32,10 +32,19 @@
 
       <div class="row">
         <div class="form-actions col s9">
-          <%= f.button :submit%>
+          <%= f.button :submit, "REGISTER" %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-<%= link_to 'Back', :back %>
+
+
+<div class="row">
+  <div class="col s6">
+    <%= link_to :back do %>
+      <i class="material-icons">arrow_back</i>
+      <p>Back</p>
+    <% end %>
+  </div>
+</div>

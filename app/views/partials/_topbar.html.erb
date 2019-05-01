@@ -1,23 +1,28 @@
-<div class="row valign-wrapper" id="topbar">
-  <div class="col s1">
+<div class="" id="topbar">
+  <div class="">
     <%= link_to(image_tag('logos/baker.svg', id: 'topbar_image'), home_path) %>
   </div>
-  <div class="col s7">
+  <div class="">
     <h2><%= link_to "Baking Factory", home_path, class: "home_link" %></h2>
   </div>
-  <div class="col s4">
+  <div id="reg-btns">
     <% if logged_in? %>
       <p> Welcome, <%= current_user.username%>&nbsp;:&nbsp;<%= current_user.role%></p>
-    <% end %>
-    <% unless current_page?(login_path) %>
-      <% if logged_in? %>
-        <%= link_to "LOGOUT", logout_path, class: "waves-effect waves-light btn", id: "loginout" %>
-      <% else %>
-        <%= link_to "LOGIN", login_path, class: "waves-effect waves-light btn", id: "loginout" %>
-        <%= link_to "REGISTER", new_customer_path, class: "waves-effect waves-light btn red"%>
-      <% end %>
+    <% else %>
+      <p> </p>
     <% end %>
   </div>
-
+  <div>
+    <% if logged_in? %>
+      <div class="">
+        <%= link_to "LOGOUT", logout_path, class: "waves-effect waves-light btn hide-on-small-and-down", id: "loginout" %>
+      </div>
+    <% else %>
+      <div class="">
+        <%= link_to "LOGIN", login_path, class: "waves-effect waves-light btn hide-on-small-and-down", id: "loginout" %>
+        <%= link_to "REGISTER", new_customer_path, class: "waves-effect waves-light btn red hide-on-small-and-down", id: "loginout"%>
+      </div>
+    <% end %>
+  </div>
 
 </div>

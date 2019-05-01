@@ -14,6 +14,7 @@
 //= require rails-ujs
 //= require materialize-sprockets
 //= require materialize-form
+//= require vue
 //= require_tree .
 
 // @import "materialize";
@@ -26,3 +27,13 @@ $(function() {
      $(this).delay(3700).fadeOut();
   });
 });
+
+$(document).ready(function() {
+  $(".button-collapse").sideNav({
+    edge: 'right',
+  });
+  $(".dropdown-button").dropdown({
+    hover: true,
+    belowOrigin: true,
+    });
+})

@@ -7,6 +7,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.integer :units_per_item
       t.float :weight
       t.boolean :active
+      t.string :picture
 
       t.timestamps
     end

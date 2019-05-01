@@ -1,0 +1,20 @@
+<div id="tabbed">
+  <tabs>
+
+    <tab name="overview" v-bind:selected="true">
+        <%= render :partial => "admin_overview" %>
+    </tab>
+
+    <tab name="top customers">
+      <%# <%= render :partial => "pet_list", locals: {pets: @inactive_pets, state: 'inactive'} %> %>
+    </tab>
+
+    <tab name="popular items">
+
+    </tab>
+
+  </tabs>
+</div>
+
+<p>&nbsp;</p>
+<%# <%= render :partial => "partials/add_new_object", locals: {model_name: 'pet'} %> %>
