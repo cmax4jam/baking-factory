@@ -98,6 +98,72 @@ body {
   color: #800000;
 }
 
+/********** TABLES ********/
+table.striped > tbody > tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+table.striped > tbody > tr:nth-child(even) {
+  background-color: #fffde7;
+}
+
+table.highlight > tbody > tr:hover {
+  background-color: #fff59d;
+}
+
+td.align_right {
+  text-align: right;
+}
+
+td.align_center {
+  text-align: center;
+}
+
+th.align_right {
+  text-align: right;
+}
+
+th.align_center {
+  text-align: center;
+}
+
+
+/********** ADMIN QUICK ACTIONS ********/
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: #eee;
+  padding: 20px;
+  margin: 0 0 20px 0;
+  > * {
+    margin: 0 10px;
+  }
+}
+
+.searchy {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.searchy input {
+  width: 90%;
+  display: flex;
+  margin: 0;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  padding-left: 15px;
+}
+
+.searchy i {
+  padding-right: 15px;
+}
+
+
+
 /********** FOOTER ********/
 
 #footer {
