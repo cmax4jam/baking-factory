@@ -1,19 +1,45 @@
 <h4>Quick Actions</h4>
 
-<div class="bar z-depth-1">
+<div class="bar z-depth-1 ">
     <div class="quick">
-        <p> vhuv</p>
+        <%= link_to "New Customer", new_customer_path, class: "waves-effect waves-light btn" %>
     </div>
     <div class="searchy card">
-        <input placeholder="search...">
+        <input placeholder="Find a customer...">
         <i class="material-icons">search</i>
         <div class="search-results"></div>
-        
     </div>
-    <div class="icons">
-        <p> njo</p>
-    </div>
-
-
 </div>
-    
+
+<div class="bar z-depth-1 ">
+    <div class="quick">
+        <%= link_to "New Address", new_address_path, class: "waves-effect waves-light btn" %>
+    </div>
+    <div class="searchy card">
+        <input placeholder="Find an address...">
+        <i class="material-icons">search</i>
+        <div class="search-results"></div>
+    </div>
+</div>
+
+<div class="bar z-depth-1 ">
+    <div class="quick">
+        <%= link_to "New Order", new_order_path, class: "waves-effect waves-light btn" %>
+    </div>
+    <div class="searchy card">
+        <input placeholder="Find an order...">
+        <i class="material-icons">search</i>
+        <div class="search-results"></div>
+    </div>
+</div>
+
+<div class="bar z-depth-1 ">
+    <div class="quick">
+        <%= link_to "New Item", new_item_path, class: "waves-effect waves-light btn" %>
+    </div>
+    <div class="searchy card">
+        <input placeholder="Find an item...">
+        <i class="material-icons">search</i>
+        <div class="search-results"></div>
+    </div>
+</div>

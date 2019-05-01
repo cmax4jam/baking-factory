@@ -1,0 +1,16 @@
+<div id="tabbed">
+  <tabs>
+
+    <tab name="active customers" v-bind:selected="true">
+      <%= render :partial => "active_customers", locals: {customers: @active_customers} %>
+    </tab>
+
+    <tab name="inactive customers">
+      <%= render :partial => "inactive_customers", locals: {customers: @inactive_customers} %>
+    </tab>
+
+  </tabs>
+</div>
+
+<p>&nbsp;</p>
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'customer'} %>
