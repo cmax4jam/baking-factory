@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', :as => :logout
   get 'insights' => 'home#admin_insights', :as => :admin_insights
   get 'actions' => 'home#admin_actions', :as => :admin_actions
+  get 'registered' => 'sessions#create', :as => :create_session
   
   # Set the root url
   root :to => 'home#home'

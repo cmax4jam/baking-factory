@@ -31,7 +31,9 @@ class CustomersController < ApplicationController
     @customer.user.role = "customer"
     @customer.user.active = "true"
       if @customer.save
-        redirect_to @customer, notice: "#{@customer.proper_name} was added to the system."
+        #Session.new(session_params)
+        #redirect_to create_session_path, locals: {object: @customer}
+        redirect_to login_path, notice: "#{@customer.proper_name} was added to the system."
       else
         render action: 'new'
       end
