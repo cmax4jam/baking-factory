@@ -1,4 +1,6 @@
-<%= render partial: "partials/index_structure", locals: {model_name: "item", 
-                                                         primary: "active_items", 
-                                                         secondary: nil,
-                                                         sidebar: "inactive_items"} %>
+<% if current_user.role == 'admin' %>
+    <%= render partial: "admin_index", locals: {breads: @breads, muffins: @muffins, pastries: @pastries, inactive_items: @inactive_items} %>
+
+<% elsif current_user.role == 'customer' %>
+    <%= render partial: "customer_index", locals: {breads: @breads, muffins: @muffins, pastries: @pastries, inactive_items: @inactive_items}  %>
+<% end %>

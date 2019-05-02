@@ -1,0 +1,19 @@
+<div id="tabbed">
+    <tabs>
+        <tab name="Bread" v-bind:selected="true">
+            <%= render partial: "admin_boxes", locals: {items: breads} %>
+        </tab>
+
+        <tab name="Muffins">
+            <%= render partial: "admin_boxes", locals: {items: muffins} %>
+        </tab>
+
+        <tab name="Pastries">
+            <%= render partial: "admin_boxes", locals: {items: pastries} %>
+        </tab>
+
+        <tab name="Inactive Items">
+            <%= render partial: "admin_boxes", locals: {items: inactive_items} %>
+        </tab>
+    </tabs>
+</div>
