@@ -1,11 +1,33 @@
+<ul id="dropdown1" class="dropdown-content">
+  <li><%= link_to 'Edit Addresses', addresses_path %></li>
+  <li class="divider"></li>
+  <li><%= link_to 'Order History', orders_path %></li>
+  <li class="divider"></li>
+  <li><%= link_to 'Edit Profile', @customer %></li>
+</ul>
 <nav id="nav">
-  <div class="container">
-    <ul class="left hide-on-small-and-down">
-      <li><%= link_to 'About Us', about_path %></li>
-      <li><%= link_to 'Contact Us', contact_path %></li>
-    </ul>
-    <ul class="right">
-      <li></li>
-    </ul>
-  </div>
+    <div class="container">
+        <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up right"><i class="material-icons">menu</i></a>
+        <ul class="hide-on-small-and-down">
+            <li><%= link_to 'Bread', items_path %></li>
+            <li><%= link_to 'Muffins', items_path %></li>
+            <li><%= link_to 'Pastries', items_path %></li>
+            <li class="right"><%= link_to @customer do %>
+                <i class="material-icons right">shopping_cart</i>
+            <% end %> </li>
+            <li class="right my-account"><%= link_to @customer, data: {activates: "dropdown1"}, class: "dropdown-button" do %>My Account
+                <i class="material-icons right">arrow_drop_down</i>
+            <% end %> </li>
+            
+        </ul>
+        <ul class="side-nav right" id="mobile-demo">
+        <li><%= link_to 'Insights', admin_insights_path %></li>
+        <% if logged_in? %>
+            <li><%= link_to "LOGOUT", logout_path, class: "waves-effect waves-light btn", id: "loginout" %></li>
+        <% else %>
+            <li><%= link_to "LOGIN", login_path, class: "waves-effect waves-light btn", id: "loginout" %>
+            <%= link_to "REGISTER", new_customer_path, class: "waves-effect waves-light btn red"%></li>
+        <% end %>
+        </ul>
+    </div>
 </nav>

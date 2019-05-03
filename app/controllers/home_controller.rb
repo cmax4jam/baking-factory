@@ -33,9 +33,7 @@ class HomeController < ApplicationController
     # Better search
     @customers = Customer.search_name(@query) + Customer.search(@query)
     @items = Item.search_name(@query)
-    @medicines = Medicine.search_full_text(@query)
-    @procedures = []
-    @total_hits = @owners.size + @pets.size + @medicines.size + @procedures.size
+    @total_hits = @customers.size + @items.size
 
   end
 
