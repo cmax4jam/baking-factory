@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  import AppHelpers::Cart
+
   before_action :set_order, only: [:show, :destroy]
   before_action :check_login
   authorize_resource

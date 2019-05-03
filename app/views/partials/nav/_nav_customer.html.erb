@@ -9,11 +9,9 @@
     <div class="container">
         <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up right"><i class="material-icons">menu</i></a>
         <ul class="hide-on-small-and-down">
-            <li><%= link_to 'Bread', items_path %></li>
-            <li><%= link_to 'Muffins', items_path %></li>
-            <li><%= link_to 'Pastries', items_path %></li>
+            <li><%= link_to 'Our Products', items_path %></li>
             <li class="right"><%= link_to @customer do %>
-                <i class="material-icons right">shopping_cart</i>
+                <i class="material-icons left cart">shopping_cart</i>(0)
             <% end %> </li>
             <li class="right my-account"><%= link_to @customer, data: {activates: "dropdown1"}, class: "dropdown-button" do %>My Account
                 <i class="material-icons right">arrow_drop_down</i>

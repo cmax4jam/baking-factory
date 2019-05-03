@@ -18,6 +18,9 @@ class HomeController < ApplicationController
   def actions
   end
 
+  def customer_home
+  end
+
   def search
     redirect_back(fallback_location: home_path) if params[:query].blank?
     @query = params[:query]
