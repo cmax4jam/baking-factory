@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    import AppHelpers::Cart
+    include AppHelpers::Cart
 
     def new
     end

@@ -1,4 +1,11 @@
-<%= render partial: "partials/index_structure", locals: {model_name: "order", 
+<% if current_user.role == 'admin' %>
+    <%= render partial: "partials/index_structure", locals: {model_name: "order", 
                                                          primary: "all_orders", 
                                                          secondary: nil,
                                                          sidebar: nil} %>
+<% else %>
+    <%= render partial: "partials/index_structure", locals: {model_name: "order", 
+                                                         primary: "order_history", 
+                                                         secondary: nil,
+                                                         sidebar: nil} %>
+<% end %>

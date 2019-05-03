@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   get 'actions' => 'home#admin_actions', :as => :admin_actions
   get 'registered' => 'sessions#create', :as => :create_session
   
-  
   # Set the root url
   root :to => 'home#home'
 
