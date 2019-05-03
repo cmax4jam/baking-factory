@@ -21,5 +21,8 @@ Rails.application.routes.draw do
   
   # Set the root url
   root :to => 'home#home'
+
+  # Searching
+  get 'home/search', to: 'home#search', as: :search
   
 end
