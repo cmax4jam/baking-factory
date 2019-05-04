@@ -77,6 +77,15 @@ body {
   font-size: 1.2rem;
 }
 
+nav i.material-icons{
+  margin-left: 5px;
+}
+
+nav i.material-icons.cart {
+  margin-right: 5px;
+}
+
+
 #topbar_image {
   display: flex;
   margin-left: auto;
@@ -95,6 +104,8 @@ body {
   }
 }
 
+
+/********** SHOPPING CART ********/
 
 .shopping-cart {
   float: right;
@@ -177,20 +188,6 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-// .cart-button {
-//   color:white;
-//   text-align: center;
-//   padding: 12px;
-//   text-decoration: none;
-//   display: block;
-//   border-radius: 3px;
-//   font-size: 16px;
-//   margin: 25px 0 15px 0;
-  
-//   &:hover {
-//     background: lighten($main-color, 3%);
-//   }
-// }
 
 .clearfix:after {
   content: "";
@@ -283,7 +280,6 @@ th.align_center {
 }
 
 
-/********** ADMIN QUICK ACTIONS ********/
 .itembar {
   display: flex;
   align-items: center;
@@ -298,13 +294,22 @@ th.align_center {
 }
 
 
-nav i.material-icons{
-  margin-left: 5px;
+
+/********** ITEM SHOW ********/
+.show-item-picture {
+  width: 100%;
 }
 
-nav i.material-icons.cart {
-  margin-right: 5px;
+.edit-item-picture {
+  float: left;
+  width: 10%;
 }
+
+.choose-file {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
 
 
 

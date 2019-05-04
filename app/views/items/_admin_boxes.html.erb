@@ -1,7 +1,7 @@
 <% items.each do |item| %>
     <div class="itembar z-depth-1 ">
         <div>
-            <%= link_to(image_tag(item.picture.nil? ? 'no_image_found.png' : item.picture, id: 'topbar_image'), item) %>
+            <%= link_to(image_tag(item.picture_url.nil? ? 'no_image_found.png' : item.picture_url, id: 'topbar_image'), item) %>
         </div>
         <div>
             <%= item.name %>

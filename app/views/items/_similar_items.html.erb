@@ -1,0 +1,22 @@
+<% unless similar_items.empty? %>
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">Similar Items</span>
+      <table>
+      <thead>
+        <tr>
+          <th width="50">Name</th>
+          <th width="50">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% (similar_items - [@item]).each do |item| %>
+        <tr>
+          <td><%= link_to item.name, item_path(item) %></td>
+          <td><%= number_to_currency item.current_price %></td>
+        </tr>
+      <% end %>
+    </table>
+    </div>
+  </div>
+<% end %>

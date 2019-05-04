@@ -28,14 +28,12 @@ class ApplicationController < ActionController::Base
   end
 
   def cart_size
-    order_items = Array.new
-      return order_items.size if session[:cart].empty? # skip if cart empty...
-      session[:cart].each do |item_id, quantity|
-        info = {item_id: item_id, quantity: quantity}
-        order_item = OrderItem.new(info)
-        order_items << order_item
-      end
-      order_items.size
+    sum = 0
+    return sum if session[:cart].empty? # skip if cart empty...
+    session[:cart].each do |item_id, quantity|
+      sum += quantity
+    end
+    sum
   end
   helper_method :cart_size
 

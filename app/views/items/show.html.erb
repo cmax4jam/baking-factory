@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col s7">
+    <%= render partial: "item_details" %>
+  </div>
+  <div class="col s5">
+    <%= render partial: "similar_items", locals: {similar_items: @similar_items}  unless @similar_items.empty?%>
+  </div>
+</div>
+
+<!-- Add buttons to list all, edit project or destroy object -->
+<%= render partial: "partials/object_options", locals: {model_name: "item", object: @item}  %>

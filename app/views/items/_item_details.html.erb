@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-content">
+        <h3><%= @item.name %></h3>
+
+        <div>
+            <%= image_tag(@item.picture_url.nil? ? 'no_image_found.png' : @item.picture_url, class: "show-item-picture") %>
+        </div>
+        <p>
+        <b>Description</b>: <%= @item.description %>
+        </p>
+
+        <p>
+        <b>Category</b>: <%= @item.category %>
+        </p>
+
+        <p>
+        <b>Units Per Item</b>: <%= @item.units_per_item %>
+        </p>
+
+        <p>
+        <b>Weight</b>: <%= @item.weight%> lbs
+
+        <p>
+        <b>Active</b>: <%= @item.active ? 'Yes' : 'No' %>
+        </p>
+
+    </div>
+</div>

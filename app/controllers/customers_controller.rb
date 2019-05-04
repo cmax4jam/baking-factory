@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
   include ActionView::Helpers::NumberHelper
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :check_login
+  #before_action :check_login
   authorize_resource
 
   def index

@@ -1,0 +1,8 @@
+<%= link_to(image_tag(@item.picture_url.nil? ? 'no_image_found.png' : @item.picture_url, class: "left edit-item-picture"), @item) %>
+<%= f.input :name, label_html: {class: "active avg"} %>
+<%= f.file_field :picture, label: "Picture", label_html: {class: "active avg"}, class: "choose-file" %>
+<%= f.input :description, label_html: {class: "active avg"} %>
+<%= f.input :category, label_html: {class: "active avg"} %>
+<%= f.input :units_per_item, label_html: {class: "active avg"} %>
+<%= f.input :weight, label_html: {class: "active avg"} %>
+<%= f.input :active, label_html: {class: "active avg"} %>

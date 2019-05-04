@@ -5,6 +5,8 @@ class Item < ApplicationRecord
   include AppHelpers::Activeable::InstanceMethods
   extend AppHelpers::Activeable::ClassMethods
 
+  mount_uploader :picture, PictureUploader
+
   # List of allowable categories
   CATEGORIES = [['Bread','bread'],['Muffins','muffins'],['Pastries','pastries']]
 
