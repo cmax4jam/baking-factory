@@ -10,8 +10,8 @@
         <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up right"><i class="material-icons">menu</i></a>
         <ul class="hide-on-small-and-down">
             <li><%= link_to 'Our Products', items_path %></li>
-            <li class="right"><%= link_to @customer do %>
-                <i class="material-icons left cart">shopping_cart</i>(0)
+            <li class="right" id="cart"><%= link_to new_order_path do %>
+                <i class="material-icons left cart">shopping_cart</i>(<%= cart_size %>)
             <% end %> </li>
             <li class="right my-account"><%= link_to @customer, data: {activates: "dropdown1"}, class: "dropdown-button" do %>My Account
                 <i class="material-icons right">arrow_drop_down</i>
@@ -29,3 +29,32 @@
         </ul>
     </div>
 </nav>
+
+  <div class="shopping-cart z-depth-2">
+    <div class="shopping-cart-header">
+      <i class="material-icons left cart cart-icon">shopping_cart</i>(<%= cart_size %>)
+      <div class="shopping-cart-total">
+        <span class="lighter-text">Total:</span>
+        <span class="main-color-text">$2,229.97</span>
+      </div>
+    </div> <!--end shopping-cart-header -->
+
+    <ul class="shopping-cart-items">
+      <li class="clearfix">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
+        <span class="item-name">Sony DSC-RX100M III</span>
+        <span class="item-price">$849.99</span>
+        <span class="item-quantity">Quantity: 01</span>
+      </li>
+
+      <li class="clearfix">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item2.jpg" alt="item1" />
+        <span class="item-name">KS Automatic Mechanic...</span>
+        <span class="item-price">$1,249.99</span>
+        <span class="item-quantity">Quantity: 01</span>
+      </li>
+
+    </ul>
+
+    <%= link_to 'Checkout', new_order_path, class:"waves-effect waves-light btn checkout" %>
+  </div> <!--end shopping-cart -->

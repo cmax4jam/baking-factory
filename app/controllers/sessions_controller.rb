@@ -28,15 +28,4 @@ class SessionsController < ApplicationController
     end
 
 
-    def add_to_cart(item_id)
-      add_item_to_cart(item_id)
-    end
-
-    def remove_from_cart(item_id)
-      remove_item_from_cart(item_id)
-    end
-
-    def get_cart_size
-      get_list_of_items_in_cart().size
-    end
 end

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'welcome' => 'home#customer_home', :as => :customer_home
   get 'actions' => 'home#admin_actions', :as => :admin_actions
   get 'registered' => 'sessions#create', :as => :create_session
+
+  get 'add_to_cart' => 'orders#add_to_cart', :as => :add_to_cart
   
   # Set the root url
   root :to => 'home#home'

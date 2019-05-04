@@ -1,0 +1,18 @@
+<div class="row">
+    <% items.each do |item| %>
+    <div class="col s4 l4 m4">
+    <div class="card hoverable">
+        <div class="card-image">
+            <%= link_to(image_tag(item.picture.nil? ? 'no_image_horizontal.jpg' : item.picture), item) %>
+            <span class="card-title black"><%= item.name%> </span>
+            <%= link_to add_to_cart_path(item_id: item.id), class:"btn-floating halfway-fab waves-effect waves-light" do %>
+                <i class="material-icons">add</i>
+            <% end %>
+        </div>
+        <div class="card-content">
+            dsfsdf
+        </div>
+    </div>
+    </div>
+    <% end %>
+</div>

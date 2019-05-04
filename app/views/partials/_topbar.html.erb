@@ -3,13 +3,16 @@
     <%= link_to(image_tag('logos/baker.svg', id: 'topbar_image'), home_path) %>
   </div>
   <div class="">
-    <% if current_user.role == 'admin' %>
+    <% if current_user.nil? %>
+      <h2><%= link_to "Baking Factory", home_path, class: "home_link" %></h2>
+    <% elsif current_user.role == 'admin' %>
       <h2><%= link_to "Baking Factory", admin_insights_path, class: "home_link" %></h2>
     <% elsif current_user.role == 'customer' %>
       <h2><%= link_to "Baking Factory", customer_home_path, class: "home_link" %></h2>
     <% elsif current_user.role == 'baker' %>
       <h2><%= link_to "Baking Factory", baker_home_path, class: "home_link" %></h2>
     <% elsif current_user.role == 'shipper' %>
+      <h2><%= link_to "Baking Factory", shipper_home_path, class: "home_link" %></h2>
     <% else %>
       <h2><%= link_to "Baking Factory", home_path, class: "home_link" %></h2>
     <% end %>

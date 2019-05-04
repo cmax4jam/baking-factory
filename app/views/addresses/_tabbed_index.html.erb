@@ -2,11 +2,19 @@
   <tabs>
 
     <tab name="active addresses" v-bind:selected="true">
-      <%= render :partial => "active_addresses", locals: {addresses: @active_addresses} %>
+      <% if current_user.role == 'customer' %>
+        <%= render :partial => "customer_active", locals: {addresses: @active_addresses, state: 'active'} %>
+      <% else %>
+        <%= render :partial => "active_addresses", locals: {addresses: @active_addresses} %>
+      <% end %>
     </tab>
 
     <tab name="inactive addresses">
-      <%= render :partial => "inactive_addresses", locals: {addresses: @inactive_addresses} %>
+      <% if current_user.role == 'customer' %>
+        <%= render :partial => "customer_inactive", locals: {addresses: @inactive_addresses, state: 'inactive'} %>
+      <% else %>
+        <%= render :partial => "inactive_addresses", locals: {addresses: @inactive_addresses} %>
+      <% end %>
     </tab>
 
   </tabs>

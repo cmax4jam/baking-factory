@@ -50,6 +50,23 @@ $(document).ready(function() {
   }
 });
 
+
+(function(){
+ 
+  $("#cart").on("mouseover", function() {
+    $(".shopping-cart").fadeIn("fast");
+  });
+  
+})();
+
+(function(){
+ 
+  $("#cart").on("mouseleave", function() {
+    $(".shopping-cart").on("mouseleave", function() {$(".shopping-cart").fadeOut("fast");})
+  });
+  
+})();
+
 // Sticky footer js
 // Thanks to Charles Smith for this -- http://foundation.zurb.com/forum/posts/629-sticky-footer
 // $(window).bind("load", function () {

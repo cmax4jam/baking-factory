@@ -31,6 +31,19 @@ class OrdersController < ApplicationController
       render action: 'new'
     end
   end
+
+  def add_to_cart
+    add_item_to_cart(params[:item_id])
+    redirect_to items_path, notice: "Item added to cart."
+  end
+
+  def remove_from_cart(item_id)
+    remove_item_from_cart(item_id)
+  end
+
+  def get_cart_size
+    get_list_of_items_in_cart().size
+  end
   
 
   private
@@ -39,7 +52,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:address_id, :customer_id, :grand_total)
+    params.require(:order).permit(:address_id, :customer_id, :grand_total, :item_id)
   end
 
 end

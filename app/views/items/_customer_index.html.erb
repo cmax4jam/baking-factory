@@ -1,0 +1,28 @@
+<div id="tabbed">
+    <tabs>
+        <tab name="Bread" v-bind:selected="true">
+            <% if breads.empty? %>
+                <h3>There are currently no breads at this time.</h3>
+            <% else %>
+                <%= render partial: "customer_item_cards", locals: {items: breads} %>
+            <% end %>
+        </tab>
+
+        <tab name="Muffins">
+            <% if muffins.empty? %>
+                <h3>There are currently no muffins at this time.</h3>
+            <% else %>
+                <%= render partial: "customer_item_cards", locals: {items: muffins} %>
+            <% end %>
+        </tab>
+
+        <tab name="Pastries">
+            <% if pastries.empty? %>
+                <h3>There are currently no pastries at this time.</h3>
+            <% else %>
+                <%= render partial: "customer_item_cards", locals: {items: pastries} %>
+            <% end %>
+        </tab>
+
+    </tabs>
+</div>

@@ -27,4 +27,16 @@ class ApplicationController < ActionController::Base
     redirect_to home_path
   end
 
+  def cart_size
+    order_items = Array.new
+      return order_items.size if session[:cart].empty? # skip if cart empty...
+      session[:cart].each do |item_id, quantity|
+        info = {item_id: item_id, quantity: quantity}
+        order_item = OrderItem.new(info)
+        order_items << order_item
+      end
+      order_items.size
+  end
+  helper_method :cart_size
+
 end
