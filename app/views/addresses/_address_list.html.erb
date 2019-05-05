@@ -8,7 +8,7 @@
       <th width="225">Recipient</th>
       <th width="300">Address</th>
       <th width="75">Billing?</th>
-      <% if current_user.role? :admin %>
+      <% if current_user.role?(:admin) %>
           <th class="align_center" width="100">Options</th>
       <% end %>
     </tr>
@@ -22,7 +22,7 @@
           <%= render :partial => "partials/address_info", locals: {address: address} %>
         </td>
         <td align="center"><%= address.is_billing ? "Yes" : "No" %></td>      
-        <% if current_user.role? :admin %>
+        <% if current_user.role?(:admin) %>
             <td class="align_center">
               <%= link_to edit_address_path(address) do %>
                 <i class="material-icons">edit</i>

@@ -1,3 +1,11 @@
-    <%= f.input :customer_id, collection: Customer.active.alphabetical, include_blank: true, input_html: {class: "avg"} %>
-    <%= f.input :address_id, collection: get_address_options, include_blank: true, input_html: {class: "avg"} %>
-    <%= f.input :grand_total, as: :string, input_html: {class: "avg"} %>
+<% if current_user.role?(:admin) %>
+    <%= f.input :address_id, collection: get_address_options(@order.customer.user), include_blank: true, label_html: {class: "avg"} %>
+<% else %>
+    <%= f.input :address_id, collection: get_address_options(current_user), include_blank: true, label_html: {class: "avg"} %>
+<% end %>
+
+<% if controller.action_name != 'edit' %>
+    <%= f.input :credit_card_number, as: :integer, required: true, label_html: {class: "active avg"} %>
+    <%= f.input :expiration_month, collection: 01..12, required: true, label_html: {class: "avg"} %>
+    <%= f.input :expiration_year, collection: (Date.today.year.to_i)..(Date.today.year+100), required: true, label_html: {class: "avg"} %>
+<% end %>

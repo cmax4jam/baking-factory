@@ -7,7 +7,7 @@
         <th width="225">Name</th>
         <th width="150">Phone</th>
         <th width="200">Email</th>
-        <% if current_user.role? :admin %>
+        <% if current_user.role?(:admin) %>
           <th class="align_center" width="100">Options</th>
         <% end %>
       </tr>
@@ -18,7 +18,7 @@
           <td><%= link_to customer.name, customer_path(customer) %></td>
           <td><%= number_to_phone customer.phone %></td>
           <td><%= mail_to customer.email, customer.email, encode: "javascript"  %></td>
-          <% if current_user.role? :admin %>
+          <% if current_user.role?(:admin) %>
             <td class="align_center">
               <%= link_to edit_customer_path(customer) do %>
                 <i class="material-icons">edit</i>

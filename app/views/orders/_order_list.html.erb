@@ -6,7 +6,7 @@
       <th width="225">Customer</th>
       <th width="225">Recipient</th>
       <th width="100">Total</th>
-      <% if current_user.role? :admin %>
+      <% if current_user.role?(:admin) %>
           <th class="align_center" width="100">Options</th>
       <% end %>
     </tr>
@@ -18,13 +18,13 @@
         <td><%= link_to order.customer.name, customer_path(order.customer) %></td>
         <td><%= link_to order.address.recipient, address_path(order.address) %></td>
         <td><%= number_to_currency order.grand_total %></td>
-        <% if current_user.role? :admin %>
-            <td class="align_center">
-              <%= link_to edit_order_path(order) do %>
-                <i class="material-icons">edit</i>
-              <% end %>
-            </td>
+        <td class="align_center">
+        <% if current_user.role?(:admin) && order.is_editable? %>
+          <%= link_to edit_order_path(order) do %>
+            <i class="material-icons">edit</i>
           <% end %>
+        <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

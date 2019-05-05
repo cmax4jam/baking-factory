@@ -1,9 +1,11 @@
 class OrdersController < ApplicationController
   include AppHelpers::Cart
 
-  before_action :set_order, only: [:show, :destroy]
+  before_action :set_order, only: [:show, :edit, :destroy]
   before_action :check_login
   authorize_resource
+
+  helper_method :get_list_of_items_in_cart
 
   def index
     if current_user.role == 'customer'
@@ -21,11 +23,20 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
+  def edit
+  end
+
   def create
     @order = Order.new(order_params)
     @order.date = Date.current
+    @order.grand_total = calculate_cart_items_cost
+    @order.customer = current_user.customer
+    @order.expiration_year = @order.expiration_year.to_i
+    @order.expiration_month = @order.expiration_month.to_i
     if @order.save
+      save_each_item_in_cart(@order)
       @order.pay
+      clear_cart
       redirect_to @order, notice: "Thank you for ordering from the Baking Factory."
     else
       render action: 'new'
@@ -37,12 +48,9 @@ class OrdersController < ApplicationController
     redirect_to items_path, notice: "Item added to cart."
   end
 
-  def remove_from_cart(item_id)
-    remove_item_from_cart(item_id)
-  end
-
-  def get_cart_size
-    get_list_of_items_in_cart().size
+  def remove_from_cart
+    remove_item_from_cart(params[:item_id])
+    redirect_to new_order_path, notice: "Item removed from cart."
   end
   
 
@@ -52,7 +60,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:address_id, :customer_id, :grand_total, :item_id)
+    params.require(:order).permit(:address_id, :customer_id, :grand_total, :item_id, :credit_card_number, :expiration_year, :expiration_month)
   end
 
 end

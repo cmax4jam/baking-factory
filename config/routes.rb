@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'registered' => 'sessions#create', :as => :create_session
 
   get 'add_to_cart' => 'orders#add_to_cart', :as => :add_to_cart
+  get 'remove_from_cart' => 'orders#remove_from_cart', :as => :remove_from_cart
 
   get 'toggle_state' => 'items#toggle_state', :as => :toggle_state
   
