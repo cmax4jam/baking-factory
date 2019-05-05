@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include AppHelpers::Cart
+  include AppHelpers::Shipping
 
   private
   def current_user
@@ -40,5 +41,6 @@ class ApplicationController < ActionController::Base
 
   helper_method :calculate_cart_items_cost
   helper_method :get_list_of_items_in_cart
+  helper_method :calculate_cart_shipping
 
 end

@@ -45,8 +45,16 @@
                     </tr>
                 <% end %>
                 </table>
+                <div class="right">
+                    <p>Subtotal: <b><%= number_to_currency calculate_cart_items_cost %></b></p>
+                </div>
+                </br>
+                <div class="right">
+                    <p>Estimated Shipping Costs: <b><%= number_to_currency calculate_cart_shipping %></b></p>
+                </div>
+                </br>
                 <div>
-                    <h5 class="right">Subtotal: <%= number_to_currency calculate_cart_items_cost %></h5>
+                    <h5 class="right">Grand Total: <b><%= number_to_currency (calculate_cart_items_cost + calculate_cart_shipping) %></b></h5>
                 </div>
                 </div>
             </div>

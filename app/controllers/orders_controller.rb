@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   include AppHelpers::Cart
+  include AppHelpers::Shipping
 
   before_action :set_order, only: [:show, :edit, :destroy]
   before_action :check_login
@@ -27,7 +28,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.date = Date.current
-    @order.grand_total = calculate_cart_items_cost
+    @order.grand_total = calculate_cart_items_cost + calculate_cart_shipping
     @order.customer = current_user.customer
     @order.expiration_year = @order.expiration_year.to_i
     @order.expiration_month = @order.expiration_month.to_i
