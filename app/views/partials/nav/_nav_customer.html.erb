@@ -30,9 +30,9 @@
     </div>
 </nav>
 
-  <div class="shopping-cart z-depth-2">
+  <div class="shopping-cart z-depth-3">
     <div class="shopping-cart-header">
-      <i class="material-icons left cart cart-icon">shopping_cart</i>(<%= cart_size %>)
+      <i class="material-icons cart-icon">shopping_cart</i>(<%= cart_size %>)
       <div class="shopping-cart-total">
         <span class="lighter-text">Total:</span>
         <span class="main-color-text"><%= number_to_currency calculate_cart_items_cost%></span>
@@ -42,15 +42,16 @@
     
     <ul class="shopping-cart-items">
       <% get_list_of_items_in_cart.each do |oitem| %>
-        <li>
-          <%= link_to(image_tag(oitem.item.picture_url.nil? ? 'no_image_found.png' : oitem.item.picture_url, class: "edit-item-picture"), oitem.item) %>
-          <span class="item-name"><%= oitem.item.name %></span>
+        <li class="row">
+          <%= link_to(image_tag(oitem.item.picture_url.nil? ? 'no_image_found.png' : oitem.item.picture_url, class: "edit-item-picture"), item_path(oitem.item)) %>
+          <span class="item-name"><%= link_to oitem.item.name, item_path(oitem.item) %><%= link_to remove_from_cart_path(item_id: oitem.item.id) do %><i class="inline-block material-icons right hover-cart-delete">delete</i><% end %></span>
           <span class="item-price"><%= number_to_currency oitem.item.current_price %></span>
           <span class="item-quantity">Quantity: <%= oitem.quantity %></span>
+          
         </li>
       <% end %>
     </ul>
-    
-
-    <%= link_to 'Checkout', new_order_path, class:"waves-effect waves-light btn checkout" %>
+    <div class="checkout">
+        <%= link_to 'Checkout', new_order_path, class:"waves-effect waves-light btn checkout" %>
+    </div>
   </div> <!--end shopping-cart -->

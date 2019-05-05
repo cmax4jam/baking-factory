@@ -43,12 +43,12 @@ class OrdersController < ApplicationController
 
   def add_to_cart
     add_item_to_cart(params[:item_id])
-    redirect_to items_path, notice: "Item added to cart."
+    redirect_back(fallback_location: items_path, notice: "Item added to cart")
   end
 
   def remove_from_cart
     remove_item_from_cart(params[:item_id])
-    redirect_to new_order_path, notice: "Item removed from cart."
+    redirect_back(fallback_location: new_order_path, notice: "Item removed from cart.")
   end
   
 

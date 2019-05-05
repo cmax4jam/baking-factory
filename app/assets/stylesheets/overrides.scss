@@ -85,6 +85,10 @@ nav i.material-icons.cart {
   margin-right: 5px;
 }
 
+i.material-icons.cart {
+  margin-right: 5px;
+}
+
 
 #topbar_image {
   display: flex;
@@ -121,7 +125,8 @@ nav i.material-icons.cart {
   
   .shopping-cart-header {
     border-bottom: 1px solid #E8E8E8;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
+    padding-top: 5px;
     
     .shopping-cart-total {
       float: right;
@@ -130,20 +135,21 @@ nav i.material-icons.cart {
   
   .shopping-cart-items {
     
-    padding-top: 20px;
+    padding-top: 5px;
 
       li {
         margin-bottom: 18px;
+        padding-left: 8px;
       }
 
     img {
       float: left;
       margin-right: 12px;
+      padding-top: 5px;
     }
     
     .item-name {
       display: block;
-      padding-top: 10px;
       font-size: 16px;
     }
     
@@ -180,6 +186,12 @@ nav i.material-icons.cart {
   float: left;
 }
 
+i.material-icons.hover-cart-delete {
+  position: absolute;
+  right: 10%;
+  padding-top: 10px;
+}
+
 .checkout {
   text-align: center;
   justify-content: center;
@@ -187,6 +199,7 @@ nav i.material-icons.cart {
   align-items: center;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 5px;
 }
 
 .clearfix:after {

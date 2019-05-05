@@ -1,4 +1,4 @@
-    <%= f.input :first_name, label_html: {class: "avg"} %>
-    <%= f.input :last_name, label_html: {class: "avg"} %>
-    <%= f.input :phone, label_html: {class: "avg"} %>
-    <%= f.input :email, label_html: {class: "avg"} %>
+    <%= f.input :first_name, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>
+    <%= f.input :last_name, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"}%>
+    <%= f.input :phone, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>
+    <%= f.input :email, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>
