@@ -13,3 +13,7 @@
     <%= render partial: "#{sidebar}" unless sidebar.blank? %>
   </div>
 </div>
+
+<div class="row">
+  <%= render :partial => "partials/display_base_errors", locals: {object: object} %>
+</div>

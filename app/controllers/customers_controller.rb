@@ -49,8 +49,11 @@ class CustomersController < ApplicationController
 
   def toggle_customer_state
     @customer = Customer.find(params[:customer_id])
-    @customer.update(active: !@customer.active)
-    redirect_back(fallback_location: customers_path, notice: "#{@customer.proper_name} was made #{@customer.active ? "Active" : "Inactive"}")
+    if @customer.update(active: !@customer.active)
+      redirect_back(fallback_location: customers_path, notice: "#{@customer.proper_name} was made #{@customer.active ? "Active" : "Inactive"}")
+    else
+      redirect_back(fallback_location: customers_path, alert: @customer.errors[:base].first)
+    end
   end
 
 

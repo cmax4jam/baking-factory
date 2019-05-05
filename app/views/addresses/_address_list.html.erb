@@ -5,13 +5,16 @@
   <thead>
     <tr>
       <% if current_user.role?(:admin) %>
-        <th width="225">Customer</th>
+        <th width="100">Customer</th>
       <% end %>
-      <th width="225">Recipient</th>
-      <th width="300">Address</th>
-      <th width="75">Billing?</th>
+      <th width="100">Recipient</th>
+      <th width="100">Address</th>
+      <th width="30">Billing?</th>
+      <% if current_user.role?(:admin) %>
+        <th width="30"></th>
+      <% end %>
       <% if can?(:edit, Address) %>
-          <th class="align_center" width="100">Options</th>
+          <th class="align_center" width="30">Options</th>
       <% end %>
     </tr>
   </thead>
@@ -25,7 +28,10 @@
         <td>
           <%= render :partial => "partials/address_info", locals: {address: address} %>
         </td>
-        <td align="center"><%= address.is_billing ? "Yes" : "No" %></td>      
+        <td><%= address.is_billing ? "Yes" : "No" %></td>     
+        <% if current_user.role?(:admin) %> 
+          <td class="align_center"><%= link_to "Make #{address.active ? "Inactive" : "Active"}", toggle_address_state_path(address_id: address.id), class: "waves-effect waves-light btn" %></td>
+        <% end %>
         <% if can?(:edit, Address)%>
             <td class="align_center">
               <%= link_to edit_address_path(address) do %>

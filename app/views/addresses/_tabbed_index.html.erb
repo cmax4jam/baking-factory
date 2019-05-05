@@ -1,6 +1,6 @@
+
 <div id="tabbed">
   <tabs>
-
     <tab name="active addresses" v-bind:selected="true">
       <% if current_user.role == 'customer' %>
         <%= render :partial => "customer_active", locals: {addresses: @active_addresses, state: 'active'} %>

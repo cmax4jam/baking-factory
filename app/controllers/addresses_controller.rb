@@ -42,6 +42,15 @@ class AddressesController < ApplicationController
     end
   end
 
+  def toggle_address_state
+    @address = Address.find(params[:address_id])
+    if @address.update(active: !@address.active)
+      redirect_back(fallback_location: addresses_path, notice: "Address for customer, #{@address.customer.proper_name}, was made #{@address.active ? "Active" : "Inactive"}")
+    else
+      redirect_back(fallback_location: addresses_path, alert: @address.errors[:base].first)
+    end
+  end
+
 
   private
   def set_address
