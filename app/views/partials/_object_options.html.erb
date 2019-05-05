@@ -1,14 +1,14 @@
 <% opt = "#{object.respond_to?(:name) ? object.name : model_name.capitalize }" %>
 
 <div class="form-actions">
-  <% if can? :index, eval(model_name.capitalize) %>
-    <%= link_to(eval("#{model_name.pluralize}_path"), class: 'waves-effect waves-light btn') do %>
-      &nbsp;Display All <%# model_name.pluralize.capitalize %>
+  <div class="row">
+  <% if can? :edit, object %>
+    <% if defined?(object.active) %>
+      <%= link_to(eval("toggle_#{object.class.name.downcase}_state_path(#{object.class.name.downcase}_id: #{object.id})"), class: "waves-effect waves-light btn") do %>
+      &nbsp;<%= "Make #{object.active ? "Inactive" : "Active"}"%>
+      <% end %>
     <% end %>
     &nbsp;&nbsp;
-  <% end %>
-  
-  <% if can? :edit, object %>
     <%= link_to(eval("edit_#{model_name}_path(object)"), class: 'waves-effect waves-light btn') do %>
         &nbsp;<%= "Edit #{opt}" %>
     <% end %>
@@ -20,4 +20,15 @@
         &nbsp;<%= "Delete #{opt}" %>
     <% end %>
   <% end %>
+  </div>
+  <div class="row">
+    <% if can? :index, eval(model_name.capitalize) %>
+      <%= link_to(eval("#{model_name.pluralize}_path"), class: 'waves-effect waves-light btn') do %>
+        &nbsp;Display All <%# model_name.pluralize.capitalize %>
+      <% end %>
+      &nbsp;&nbsp;
+    <% end %>
+  </div>
+
+
 </div>

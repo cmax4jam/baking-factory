@@ -1,6 +1,6 @@
-<% if current_user.role == 'admin' %>
+<% if defined?(current_user.role) && current_user.role == 'admin' %>
     <%= render partial: "admin_index", locals: {breads: @breads, muffins: @muffins, pastries: @pastries, inactive_items: @inactive_items} %>
 
-<% elsif current_user.role == 'customer' %>
+<% else %>
     <%= render partial: "customer_index", locals: {breads: @breads, muffins: @muffins, pastries: @pastries, inactive_items: @inactive_items}  %>
 <% end %>

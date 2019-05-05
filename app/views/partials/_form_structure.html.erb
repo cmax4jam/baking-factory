@@ -15,9 +15,12 @@
       <div class="row">
         <div class="form-actions col s9">
           <%= f.button :submit %>
+          <% if defined?(object.active) %>
+            <%= link_to "Make #{object.active ? "Inactive" : "Active"}", eval("toggle_#{object.class.name.downcase}_state_path(#{object.class.name.downcase}_id: #{object.id})"), class: "waves-effect waves-light btn" %>
+          <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-<%= link_to 'Back', :back %>
+<%= link_to('Back', :back) %>

@@ -321,8 +321,14 @@ i.material-icons.item-delete {
 
 
 /********** ITEM SHOW ********/
+.show-item {
+  width: 20%;
+}
 .show-item-picture {
+  display: block;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .edit-item-picture {

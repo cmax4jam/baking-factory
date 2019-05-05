@@ -24,7 +24,7 @@
         <% if current_user.role?(:admin) %>
         <td><%= link_to address.customer.proper_name, customer_path(address.customer) %></td>
         <% end %>
-        <td><%= address.recipient %></td>
+        <td><%= link_to address.recipient, address_path(address) %></td>
         <td>
           <%= render :partial => "partials/address_info", locals: {address: address} %>
         </td>

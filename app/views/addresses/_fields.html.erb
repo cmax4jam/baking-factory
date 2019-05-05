@@ -6,4 +6,3 @@
 <%= f.input :state, collection: Address::STATES_LIST, include_blank: true, label_html: {class: "avg"} %>
 <%= f.input :zip, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>
 <%= f.input :is_billing, label: 'Billing? ' %>
-<%= f.input :active %>

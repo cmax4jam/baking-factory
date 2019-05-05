@@ -12,7 +12,7 @@
         <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up right"><i class="material-icons">menu</i></a>
         <ul class="hide-on-small-and-down">
             <li><%= link_to 'Insights', admin_insights_path %></li>
-            <li><%= link_to admin_actions_path, data: {activates: "dropdown1"}, class: "dropdown-button" do %>Actions
+            <li data-activates="dropdown1" class="dropdown-button"><%= link_to admin_actions_path do %>Actions
                 <i class="material-icons right">arrow_drop_down</i>
             <% end %> </li>
 

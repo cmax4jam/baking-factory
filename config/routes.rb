@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :sessions
   resources :items
+  resources :item_prices
 
   # Semi-static page routes
   get 'home' => 'home#home', as: :home
@@ -16,8 +17,11 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new', :as => :login
   get 'logout' => 'sessions#destroy', :as => :logout
   get 'insights' => 'home#admin_insights', :as => :admin_insights
-  get 'welcome' => 'home#customer_home', :as => :customer_home
   get 'actions' => 'home#admin_actions', :as => :admin_actions
+  get 'welcome' => 'home#customer_home', :as => :customer_home
+  get 'baker_home' => 'home#baker_home', :as => :baker_home
+  get 'shipper_home' => 'home#shipper_home', :as => :shipper_home
+
   get 'registered' => 'sessions#create', :as => :create_session
 
   get 'add_to_cart' => 'orders#add_to_cart', :as => :add_to_cart

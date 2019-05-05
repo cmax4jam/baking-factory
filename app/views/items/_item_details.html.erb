@@ -2,7 +2,7 @@
     <div class="card-content">
         <h3><%= @item.name %></h3>
 
-        <div>
+        <div class="show-item">
             <%= image_tag(@item.picture_url.nil? ? 'no_image_found.png' : @item.picture_url, class: "show-item-picture") %>
         </div>
         <p>

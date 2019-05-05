@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  authorize_resource only: [:insights, :actions, :baker_home, :shipper_home]
 
   def home
   end
@@ -19,6 +20,12 @@ class HomeController < ApplicationController
   end
 
   def customer_home
+  end
+
+  def baker_home
+  end
+
+  def shipper_home
   end
 
   def search
