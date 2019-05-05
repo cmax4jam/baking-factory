@@ -51,13 +51,21 @@
     redirect_to items_url, notice: "#{@item.name} was removed from the system."
   end
 
+
+  def toggle_state
+    @item = Item.find(params[:item_id])
+    @item.update(active: !@item.active)
+    redirect_to items_url, notice: "#{@item.name} was made #{@item.active ? "Active" : "Inactive"}"
+  end
+
+
   private
   def set_item
     @item = Item.find(params[:id])
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :picture, :category, :units_per_item, :weight, :active)
+    params.require(:item).permit(:name, :description, :picture, :category, :units_per_item, :weight, :active, :item_id)
   end
 
 end

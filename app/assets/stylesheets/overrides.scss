@@ -293,6 +293,10 @@ th.align_center {
   }
 }
 
+i.material-icons.item-delete {
+  line-height: 1.5;
+}
+
 
 
 /********** ITEM SHOW ********/
@@ -308,6 +312,17 @@ th.align_center {
 .choose-file {
   padding: 10px;
   margin-bottom: 10px;
+}
+
+/********** ITEM INDEX ********/
+
+.item-description {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 

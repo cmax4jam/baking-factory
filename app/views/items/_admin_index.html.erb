@@ -1,19 +1,22 @@
 <div id="tabbed">
     <tabs>
         <tab name="Bread" v-bind:selected="true">
-            <%= render partial: "admin_boxes", locals: {items: breads} %>
+            <%= render partial: "admin_boxes", locals: {items: breads, state: "active bread"} %>
         </tab>
 
         <tab name="Muffins">
-            <%= render partial: "admin_boxes", locals: {items: muffins} %>
+            <%= render partial: "admin_boxes", locals: {items: muffins, state: "active muffins"} %>
         </tab>
 
         <tab name="Pastries">
-            <%= render partial: "admin_boxes", locals: {items: pastries} %>
+        
+            <%= render partial: "admin_boxes", locals: {items: pastries, state: "active pastries"} %>
         </tab>
 
         <tab name="Inactive Items">
-            <%= render partial: "admin_boxes", locals: {items: inactive_items} %>
+            <%= render partial: "admin_boxes", locals: {items: inactive_items, state: "inactive"} %>
         </tab>
     </tabs>
 </div>
+
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'item'} %>

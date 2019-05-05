@@ -5,7 +5,7 @@ Vue.component('tabs', {
       <div class="row">
           <div class="col s12">
             <ul class="tabs">
-              <li class="tab col s4" v-for="tab in tabs">
+              <li class="tab col s3" v-for="tab in tabs">
                 <a v-bind:href="tab.href" v-bind:class="{ 'active': tab.isActive }" v-on:click="selectTab(tab)">{{ tab.name }}</a>
               </li>
             </ul>
