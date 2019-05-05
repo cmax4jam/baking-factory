@@ -3,7 +3,9 @@
     <div class="col s4 l4 m4">
     <div class="card hoverable">
         <div class="card-image">
-            <%= link_to(image_tag(item.picture_url.nil? ? 'no_image_horizontal.jpg' : item.picture_url), item) %>
+            <div class="inner-card-image">
+                <%= link_to(image_tag(item.picture_url.nil? ? 'no_image_horizontal.jpg' : item.picture_url), item) %>
+            </div>
             <span class="card-title black"><%= item.name%> </span>
             <%= link_to add_to_cart_path(item_id: item.id), class:"btn-floating halfway-fab waves-effect waves-light" do %>
                 <i class="material-icons">add</i>
