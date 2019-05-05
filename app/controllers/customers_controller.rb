@@ -47,6 +47,12 @@ class CustomersController < ApplicationController
     end
   end
 
+  def toggle_customer_state
+    @customer = Customer.find(params[:customer_id])
+    @customer.update(active: !@customer.active)
+    redirect_back(fallback_location: customers_path, notice: "#{@customer.proper_name} was made #{@customer.active ? "Active" : "Inactive"}")
+  end
+
 
   private
   def set_customer

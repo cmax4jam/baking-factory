@@ -4,11 +4,13 @@
   <table class="table striped">
     <thead>
       <tr>
-        <th width="225">Name</th>
-        <th width="150">Phone</th>
-        <th width="200">Email</th>
+        <th width="120">Name</th>
+        <th width="100">Phone</th>
+        <th width="150">Email</th>
+
         <% if current_user.role?(:admin) %>
-          <th class="align_center" width="100">Options</th>
+          <th width="50"></th>
+          <th class="align_center" width="50">Options</th>
         <% end %>
       </tr>
     </thead>
@@ -19,6 +21,7 @@
           <td><%= number_to_phone customer.phone %></td>
           <td><%= mail_to customer.email, customer.email, encode: "javascript"  %></td>
           <% if current_user.role?(:admin) %>
+            <td><%= link_to "Make #{customer.active ? "Inactive" : "Active"}", toggle_customer_state_path(customer_id: customer.id), class: "waves-effect waves-light btn" %></td>
             <td class="align_center">
               <%= link_to edit_customer_path(customer) do %>
                 <i class="material-icons">edit</i>

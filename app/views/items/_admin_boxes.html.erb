@@ -16,7 +16,7 @@
                 <%= link_to number_to_currency(item.current_price), edit_item_path(item) %>
             </div>
             <div>
-                <%= link_to "Make #{item.active ? "Inactive" : "Active"}", toggle_state_path(item_id: item.id), class: "waves-effect waves-light btn" %>
+                <%= link_to "Make #{item.active ? "Inactive" : "Active"}", toggle_item_state_path(item_id: item.id), class: "waves-effect waves-light btn" %>
             </div>
             <div>
                 <%= link_to item_path(item), method: 'delete', data: {confirm: "Are you sure you want to permanently delete #{item.name}?"} do %>

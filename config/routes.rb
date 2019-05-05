@@ -23,7 +23,9 @@ Rails.application.routes.draw do
   get 'add_to_cart' => 'orders#add_to_cart', :as => :add_to_cart
   get 'remove_from_cart' => 'orders#remove_from_cart', :as => :remove_from_cart
 
-  get 'toggle_state' => 'items#toggle_state', :as => :toggle_state
+  get 'toggle_item_state' => 'items#toggle_item_state', :as => :toggle_item_state
+  get 'toggle_customer_state' => 'customers#toggle_customer_state', :as => :toggle_customer_state
+  get 'toggle_address_state' => 'addresses#toggle_address_state', :as => :toggle_address_state
   
   # Set the root url
   root :to => 'home#home'

@@ -52,10 +52,10 @@
   end
 
 
-  def toggle_state
+  def toggle_item_state
     @item = Item.find(params[:item_id])
     @item.update(active: !@item.active)
-    redirect_to items_url, notice: "#{@item.name} was made #{@item.active ? "Active" : "Inactive"}"
+    redirect_back(fallback_location: items_path, notice: "#{@item.name} was made #{@item.active ? "Active" : "Inactive"}")
   end
 
 
