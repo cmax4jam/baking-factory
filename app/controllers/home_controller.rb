@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
-  authorize_resource only: [:insights, :actions, :baker_home, :shipper_home]
+  before_action :check_login, only: [:insights, :actions, :baker_home, :shipper_home]
+  authorize_resource :class => false, only: [:insights, :actions, :baker_home, :shipper_home]
 
   def home
   end

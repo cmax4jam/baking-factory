@@ -69,7 +69,7 @@ class Ability
       can :show, Item
       can :index, Item
       can :index, Order
-      can :baker_home, Home
+      can :baker_home, :home
 
     elsif user.role? :shipper
       can :show, Item
@@ -77,7 +77,7 @@ class Ability
       can :index, Order
       can :show, Order
       can :show, Address
-      can :shipper_home, Home
+      can :shipper_home, :home
 
     else
       can :show, Item

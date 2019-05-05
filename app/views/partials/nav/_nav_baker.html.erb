@@ -1,0 +1,18 @@
+<nav id="nav">
+    <div class="container">
+        <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up right"><i class="material-icons">menu</i></a>
+        <ul class="hide-on-small-and-down">
+            <li><%= link_to 'Dashboard', baker_home_path %></li>
+
+        </ul>
+        <ul class="side-nav right" id="mobile-demo">
+        <li><%= link_to 'Dashboard', baker_home_path %></li>
+        <% if logged_in? %>
+            <li><%= link_to "LOGOUT", logout_path, class: "waves-effect waves-light btn", id: "loginout" %></li>
+        <% else %>
+            <li><%= link_to "LOGIN", login_path, class: "waves-effect waves-light btn", id: "loginout" %>
+            <%= link_to "REGISTER", new_customer_path, class: "waves-effect waves-light btn red"%></li>
+        <% end %>
+        </ul>
+    </div>
+</nav>
