@@ -39,5 +39,6 @@ class ApplicationController < ActionController::Base
   helper_method :cart_size
 
   helper_method :calculate_cart_items_cost
+  helper_method :get_list_of_items_in_cart
 
 end

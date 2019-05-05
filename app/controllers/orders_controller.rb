@@ -5,8 +5,6 @@ class OrdersController < ApplicationController
   before_action :check_login
   authorize_resource
 
-  helper_method :get_list_of_items_in_cart
-
   def index
     if current_user.role == 'customer'
       @previous_orders = current_user.customer.orders.chronological.paginate(:page => params[:page]).per_page(10)

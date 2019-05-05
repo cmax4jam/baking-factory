@@ -1,4 +1,12 @@
-<%= render partial: "tabbed_index", locals: {model_name: "address", 
+<% if current_user.role?(:admin) %>
+    <%= render partial: "tabbed_index", locals: {model_name: "address", 
                                                          primary: "active_addresses", 
                                                          secondary: nil, 
                                                          sidebar: nil} %>
+<% else %>
+    <h4>Active Addresses</h4>
+    <%= render partial: "active_addresses", locals: {model_name: "address",
+                                                         primary: "active_addresses", 
+                                                         secondary: nil, 
+                                                         sidebar: nil} %>
+<% end %>

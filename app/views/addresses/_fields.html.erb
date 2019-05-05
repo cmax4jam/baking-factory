@@ -1,10 +1,9 @@
 <%= f.input :customer_id, collection: Customer.active.alphabetical, include_blank: true, input_html: {class: "avg"} %>
-
-<%= f.input :recipient, input_html: {class: "avg"} %>
-<%= f.input :street_1, input_html: {class: "avg"} %>
-<%= f.input :street_2, input_html: {class: "avg"} %>
-<%= f.input :city, input_html: {class: "avg"} %>
-<%= f.input :state, collection: Address::STATES_LIST, include_blank: true, input_html: {class: "avg"} %>
-<%= f.input :zip, input_html: {class: "avg"} %>
+<%= f.input :recipient, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>
+<%= f.input :street_1, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>
+<%= f.input :street_2, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>
+<%= f.input :city, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>
+<%= f.input :state, collection: Address::STATES_LIST, include_blank: true, label_html: {class: "avg"} %>
+<%= f.input :zip, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>
 <%= f.input :is_billing, label: 'Billing? ' %>
 <%= f.input :active %>

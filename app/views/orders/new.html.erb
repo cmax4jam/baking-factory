@@ -40,11 +40,14 @@
                     <tr>
                     <td><%= link_to oitem.item.name, item_path(oitem.item) %></td>
                     <td><%= oitem.quantity %>
-                    <td><%= number_to_currency oitem.subtotal %></td>
+                    <td><%= number_to_currency oitem.item.current_price %></td>
                     <td><%= link_to remove_from_cart_path(item_id: oitem.item_id) do %><i class="material-icons cart-delete">delete</i><% end %>
                     </tr>
                 <% end %>
                 </table>
+                <div>
+                    <h5 class="right">Subtotal: <%= number_to_currency calculate_cart_items_cost %></h5>
+                </div>
                 </div>
             </div>
         </div>

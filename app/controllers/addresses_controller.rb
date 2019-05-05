@@ -4,7 +4,7 @@ class AddressesController < ApplicationController
   authorize_resource
   
   def index
-    if current_user.role == 'customer'
+    if current_user.role?(:customer)
       @active_addresses = current_user.customer.addresses.by_recipient.paginate(:page => params[:page]).per_page(10)
       @inactive_addresses = current_user.customer.addresses.inactive.by_recipient.paginate(:page => params[:page]).per_page(10)
     else

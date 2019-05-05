@@ -38,16 +38,19 @@
         <span class="main-color-text"><%= number_to_currency calculate_cart_items_cost%></span>
       </div>
     </div> <!--end shopping-cart-header -->
-
+    
+    
     <ul class="shopping-cart-items">
-      <li class="clearfix">
-        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/cart-item1.jpg" alt="item1" />
-        <span class="item-name">Sony DSC-RX100M III</span>
-        <span class="item-price">$849.99</span>
-        <span class="item-quantity">Quantity: 01</span>
-      </li>
-
+      <% get_list_of_items_in_cart.each do |oitem| %>
+        <li>
+          <%= link_to(image_tag(oitem.item.picture_url.nil? ? 'no_image_found.png' : oitem.item.picture_url, class: "edit-item-picture"), oitem.item) %>
+          <span class="item-name"><%= oitem.item.name %></span>
+          <span class="item-price"><%= number_to_currency oitem.item.current_price %></span>
+          <span class="item-quantity">Quantity: <%= oitem.quantity %></span>
+        </li>
+      <% end %>
     </ul>
+    
 
     <%= link_to 'Checkout', new_order_path, class:"waves-effect waves-light btn checkout" %>
   </div> <!--end shopping-cart -->
