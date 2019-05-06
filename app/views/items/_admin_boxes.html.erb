@@ -13,7 +13,7 @@
                 <%= item.description%>
             </div>
             <div>
-                <%= link_to number_to_currency(item.current_price), new_item_price_path %>
+                <%= link_to number_to_currency(item.current_price), new_item_price_path(item_id: item.id) %>
             </div>
             <div>
                 <%= link_to "Make #{item.active ? "Inactive" : "Active"}", toggle_item_state_path(item_id: item.id), class: "waves-effect waves-light btn" %>

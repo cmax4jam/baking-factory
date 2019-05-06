@@ -8,7 +8,7 @@ class OrderItemsController < ApplicationController
         else
           redirect_back(fallback_location: shipper_home_path, alert: @oitem.errors[:base].first)
         end
-      end
+    end
 
     def order_item_params
         params.require(:order_item).permit(:order_id, :item_id, :quantity, :shipped_on)

@@ -16,7 +16,7 @@
   def show
     if logged_in? && current_user.role?(:admin)
       # admin gets a price history in the sidebar
-      @previous_prices = @item.item_prices.chronological.to_a
+      @prices = @item.item_prices.chronological.to_a.reverse
     end
     # everyone sees similar items in the sidebar
     @similar_items = Item.for_category(@item.category).alphabetical.to_a

@@ -8,7 +8,7 @@
     </div>
   <% elsif current_user.role?(:admin) %>
     <div class="col s5">
-      <%= render partial: "similar_items", locals: {similar_items: @similar_items}  unless @similar_items.empty?%>
+      <%= render partial: "cost_history" %>
     </div>
   <% end %>
 
