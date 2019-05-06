@@ -102,7 +102,7 @@ $(document).ready(function(){
 Highcharts.chart('overview-chart', {
   
   title: {
-      text: 'Total Sales'
+      text: 'All Time Total Sales'
   },
 
   yAxis: {
@@ -146,6 +146,114 @@ Highcharts.chart('overview-chart', {
   }
 
 });
+
+
+Highcharts.chart('time2', {
+  
+  title: {
+      text: 'Total Sales in Past Week'
+  },
+  xAxis: {
+    type: 'datetime'
+  },
+
+  yAxis: {
+      title: {
+          text: 'Sales'
+      }
+  },
+  legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+      series: {
+          label: {
+              connectorAllowed: false
+          },
+          pointStart: Date.UTC(2019, 0, 5),
+          pointInterval: 24 * 3600 * 1000 // one day
+      }
+  },
+
+  series: [{
+      name: 'Revenue',
+      data: [4393, 5250, 3333, 6965, 9703, 4444, 13713, 15417]
+  },],
+
+  responsive: {
+      rules: [{
+          condition: {
+              maxWidth: 500
+          },
+          chartOptions: {
+              legend: {
+                  layout: 'horizontal',
+                  align: 'center',
+                  verticalAlign: 'bottom'
+              }
+          }
+      }]
+  }
+
+});
+
+
+Highcharts.chart('time1', {
+  
+  title: {
+      text: 'Total Sales in Past Month'
+  },
+  xAxis: {
+    type: 'datetime'
+  },
+
+  yAxis: {
+      title: {
+          text: 'Sales'
+      }
+  },
+  legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+      series: {
+          label: {
+              connectorAllowed: false
+          },
+          pointStart: Date.UTC(2019, 0, 5),
+          pointInterval: 24 * 3600 * 1000 // one day
+      }
+  },
+
+  series: [{
+      name: 'Revenue',
+      data: [4393, 5250, 3333, 6965, 9703, 4444, 13713, 15417, 1235, 7544, 2377, 2462, 5573, 7483, 5859, 4685, 4574, 9966, 5834, 2312, 1112, 3279]
+  },],
+
+  responsive: {
+      rules: [{
+          condition: {
+              maxWidth: 500
+          },
+          chartOptions: {
+              legend: {
+                  layout: 'horizontal',
+                  align: 'center',
+                  verticalAlign: 'bottom'
+              }
+          }
+      }]
+  }
+
+});
+
+
 
 
 Highcharts.chart('popular-items', {
