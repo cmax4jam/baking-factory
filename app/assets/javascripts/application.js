@@ -93,3 +93,174 @@ $(document).ready(function(){
 //       });
 //   }
 // });
+
+
+
+
+// HIGHCHARTS GRAPH
+
+Highcharts.chart('overview-chart', {
+  
+  title: {
+      text: 'Total Sales'
+  },
+
+  yAxis: {
+      title: {
+          text: 'Sales'
+      }
+  },
+  legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+      series: {
+          label: {
+              connectorAllowed: false
+          },
+          pointStart: 2010
+      }
+  },
+
+  series: [{
+      name: 'Revenue',
+      data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
+  },],
+
+  responsive: {
+      rules: [{
+          condition: {
+              maxWidth: 500
+          },
+          chartOptions: {
+              legend: {
+                  layout: 'horizontal',
+                  align: 'center',
+                  verticalAlign: 'bottom'
+              }
+          }
+      }]
+  }
+
+});
+
+
+Highcharts.chart('popular-items', {
+  chart: {
+    plotBackgroundColor: null,
+    plotBorderWidth: null,
+    plotShadow: false,
+    type: 'pie'
+  },
+  title: {
+    text: 'Item Popularity'
+  },
+  tooltip: {
+    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+  },
+  plotOptions: {
+    pie: {
+      allowPointSelect: true,
+      cursor: 'pointer',
+      dataLabels: {
+        enabled: true,
+        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+        style: {
+          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+        }
+      }
+    }
+  },
+  series: [{
+    name: 'Items',
+    colorByPoint: true,
+    data: [{
+      name: 'Sourdough',
+      y: 61.41,
+      sliced: true,
+      selected: true
+    }, {
+      name: 'Apple Cherry',
+      y: 11.84
+    }, {
+      name: 'Crossiant',
+      y: 10.85
+    }, {
+      name: 'Blueberry Muffin',
+      y: 4.67
+    }, {
+      name: 'Honey Wheat',
+      y: 4.18
+    }, {
+      name: 'Apple Carrot Muffin',
+      y: 1.64
+    },]
+  }]
+});
+
+
+Highcharts.chart('top-customers', {
+  chart: {
+      type: 'column'
+  },
+  title: {
+      text: 'Top Customers'
+  },
+  xAxis: {
+      categories: [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec'
+      ],
+      crosshair: true
+  },
+  yAxis: {
+      min: 0,
+      title: {
+          text: 'Orders'
+      }
+  },
+  tooltip: {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+          '<td style="padding:0"><b>{point.y} orders</b></td></tr>',
+      footerFormat: '</table>',
+      shared: true,
+      useHTML: true
+  },
+  plotOptions: {
+      column: {
+          pointPadding: 0.2,
+          borderWidth: 0
+      }
+  },
+  series: [{
+      name: 'Alec Lam',
+      data: [49, 71, 106, 129, 144, 176, 135, 148, 216, 194, 95, 54]
+
+  }, {
+      name: 'Prof H',
+      data: [83, 78, 98, 93, 106, 84, 105, 104, 91, 83, 106, 92]
+
+  }, {
+      name: 'Perry the Platypus',
+      data: [48, 38, 39, 41, 47, 48, 59, 59, 52, 65, 59, 51]
+
+  }, {
+      name: 'CJ May',
+      data: [42, 33, 34, 39, 52, 75, 57, 60, 47, 39, 46, 51]
+
+  }]
+});

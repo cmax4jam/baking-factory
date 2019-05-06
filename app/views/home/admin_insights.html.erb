@@ -7,15 +7,12 @@
     </tab>
 
     <tab name="top customers">
-      <%# <%= render :partial => "pet_list", locals: {pets: @inactive_pets, state: 'inactive'} %> %>
+        <%= render :partial => "admin_top_customers" %>
     </tab>
 
     <tab name="popular items">
-
+        <%= render :partial => "admin_popular_items" %>
     </tab>
 
   </tabs>
 </div>
-
-<p>&nbsp;</p>
-<%# <%= render :partial => "partials/add_new_object", locals: {model_name: 'pet'} %> %>
