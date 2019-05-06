@@ -14,7 +14,7 @@
     <% end %>
     &nbsp;&nbsp;
   <% end %>
-  <% if can?(:add_to_cart, Order) && controller.controller_name == 'items' %>
+  <% if can?(:add_to_cart, Order) && controller.controller_name == 'items' && current_user.role?(:customer)%>
     <%= link_to 'Add To Cart', add_to_cart_path(item_id: object.id), class:"btn waves-effect waves-light" %>
   <% end %>
 

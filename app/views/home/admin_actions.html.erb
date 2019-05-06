@@ -2,34 +2,25 @@
 
 <div class="bar z-depth-1 ">
     <div class="quick">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    <div class="searchy card">
+        <%= form_with url: search_path, method: :get, class: "form-inline searchy", id: "search" do %>
+            <%= text_field_tag 'query', '', placeholder: "Find a customer or an item..." %>
+        <% end %>
+        <i class="material-icons right">search</i>
+    </div>
+    <div class="quick">
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+</div>
+
+<div class="bar z-depth-1 ">
+    <div class="quick">
         <%= link_to "New Customer", new_customer_path, class: "waves-effect waves-light btn" %>
     </div>
-    <div class="searchy card">
-        <input placeholder="Find a customer...">
-        <i class="material-icons">search</i>
-        <div class="search-results"></div>
-    </div>
-</div>
-
-<div class="bar z-depth-1 ">
-    <div class="quick">
-        <%= link_to "New Address", new_address_path, class: "waves-effect waves-light btn" %>
-    </div>
-    <div class="searchy card">
-        <input placeholder="Find an address...">
-        <i class="material-icons">search</i>
-        <div class="search-results"></div>
-    </div>
-</div>
-
-<div class="bar z-depth-1 ">
-    <div class="quick">
-        <%= link_to "New Order", new_order_path, class: "waves-effect waves-light btn" %>
-    </div>
-    <div class="searchy card">
-        <input placeholder="Find an order...">
-        <i class="material-icons">search</i>
-        <div class="search-results"></div>
+    <div>
+        <%= link_to "Display All", customers_path, class: "waves-effect waves-light btn green" %>
     </div>
 </div>
 
@@ -37,9 +28,28 @@
     <div class="quick">
         <%= link_to "New Item", new_item_path, class: "waves-effect waves-light btn" %>
     </div>
-    <div class="searchy card">
-        <input placeholder="Find an item...">
-        <i class="material-icons">search</i>
-        <div class="search-results"></div>
+    <div>
+        <%= link_to "Display All", items_path, class: "waves-effect waves-light btn green" %>
+    </div>
+</div>
+
+<div class="bar z-depth-1 ">
+    <div class="quick">
+        <%= link_to "New Address", new_address_path, class: "waves-effect waves-light btn" %>
+    </div>
+    <div>
+        <%= link_to "Display All", addresses_path, class: "waves-effect waves-light btn green" %>
+    </div>
+</div>
+
+<div class="bar z-depth-1 ">
+    <div class="quick">
+        <%= link_to "New Order", new_order_path, class: "waves-effect waves-light btn" %>
+    </div>
+    <div>
+        <%= link_to "Baking Status", baker_home_path, class: "waves-effect waves-light btn green" %>
+    </div>
+    <div>
+        <%= link_to "Shipping Status", shipper_home_path, class: "waves-effect waves-light btn green" %>
     </div>
 </div>

@@ -266,7 +266,7 @@ th.align_center {
 }
 
 
-#search {
+.title-search #search {
   padding-top: 10px;
 }
 
@@ -293,6 +293,15 @@ th.align_center {
 }
 
 .searchy input {
+  width: 90%;
+  display: flex;
+  margin: 0;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  padding-left: 15px;
+}
+
+.searchy input#query {
   width: 90%;
   display: flex;
   margin: 0;

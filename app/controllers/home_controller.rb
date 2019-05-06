@@ -39,7 +39,7 @@ class HomeController < ApplicationController
     # Basic search
     @items = Item.search(@query)
     if current_user.role?(:admin)
-      @customers = Customers.search(@query)
+      @customers = Customer.search(@query)
       @total_hits = @customers.size + @items.size
     else
       @total_hits = @items.size
