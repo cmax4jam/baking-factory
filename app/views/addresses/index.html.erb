@@ -1,4 +1,5 @@
 <% if current_user.role?(:admin) %>
+    <h4>Addresses</h4>
     <%= render partial: "tabbed_index", locals: {model_name: "address", 
                                                          primary: "active_addresses", 
                                                          secondary: nil, 

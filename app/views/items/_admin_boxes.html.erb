@@ -7,7 +7,7 @@
                 <%= link_to(image_tag(item.picture_url.nil? ? 'no_image_found.png' : item.picture_url, id: 'topbar_image'), item) %>
             </div>
             <div>
-                <%= item.name %>
+                <%= link_to item.name, item_path(item) %>
             </div>
             <div class="item-description">
                 <%= item.description%>
