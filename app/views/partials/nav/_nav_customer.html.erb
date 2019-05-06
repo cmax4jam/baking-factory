@@ -33,6 +33,8 @@
   <div class="shopping-cart z-depth-3">
     <div class="shopping-cart-header">
       <i class="material-icons cart-icon">shopping_cart</i>(<%= cart_size %>)
+      &nbsp;&nbsp;&nbsp;&nbsp;Clear Cart: <%= link_to clear_cart_path do %><i class="material-icons clear-cart">delete</i><% end %></span>
+      <div class="fill-space"> </div>
       <div class="shopping-cart-total">
         <span class="lighter-text">Subtotal:</span>
         <span class="main-color-text"><%= number_to_currency calculate_cart_items_cost%></span>

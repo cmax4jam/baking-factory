@@ -56,6 +56,7 @@ class Ability
       can :create, Order
       can :add_to_cart, Order
       can :remove_from_cart, Order
+      can :clear_cart, Order
       can :create, Address
       can :show, Address do |a|
         a.customer_id == user.customer.id

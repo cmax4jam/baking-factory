@@ -60,6 +60,11 @@ class OrdersController < ApplicationController
     remove_item_from_cart(params[:item_id])
     redirect_back(fallback_location: new_order_path, notice: "Item removed from cart.")
   end
+
+  def clear_cart
+    clear_cart_items
+    redirect_back(fallback_location: customer_home_path, notice: "Cart cleared.")
+  end
   
 
   private

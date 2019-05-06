@@ -9,7 +9,7 @@ module AppHelpers
       session[:cart] ||= Hash.new
     end
 
-    def clear_cart
+    def clear_cart_items
       session[:cart] = Hash.new
     end
 
