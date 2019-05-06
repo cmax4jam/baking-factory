@@ -1,4 +1,5 @@
 class OrderItemsController < ApplicationController
+    before_action :check_login
     authorize_resource 
     
     def toggle_shipped

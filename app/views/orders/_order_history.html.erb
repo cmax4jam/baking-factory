@@ -5,6 +5,7 @@
       <th width="100">Date</th>
       <th width="200">Recipient</th>
       <th width="100">Cost</th>
+      <th width="50"></th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +14,7 @@
         <td><%= link_to order.date.strftime('%m/%d/%y'), order_path(order) %></td>
         <td><%= link_to order.address.recipient, address_path(order.address) %></td>
         <td><%= number_to_currency order.grand_total %></td>
+        <td><%= link_to 'Reorder', add_to_cart_path(order_items: order.order_items.map(&:id)), class: "btn waves-effect waves-light green" %> </td>
       </tr>
     <% end %>
   </tbody>

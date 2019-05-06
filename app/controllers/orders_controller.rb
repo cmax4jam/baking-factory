@@ -42,8 +42,17 @@ class OrdersController < ApplicationController
     end
   end
 
+
   def add_to_cart
-    add_item_to_cart(params[:item_id])
+    unless params[:order_items].nil?
+      items = params[:order_items]
+      items.each do |item|
+        result = find_item_for(item.to_i)
+        add_item_to_cart(result)
+      end
+    else
+      add_item_to_cart(params[:item_id])
+    end
     redirect_back(fallback_location: items_path, notice: "Item added to cart")
   end
 
@@ -54,12 +63,17 @@ class OrdersController < ApplicationController
   
 
   private
+
+  def find_item_for(order_item_id)
+    return OrderItem.find(order_item_id).item.id
+  end
+
   def set_order
     @order = Order.find(params[:id])
   end
 
   def order_params
-    params.require(:order).permit(:address_id, :customer_id, :grand_total, :item_id, :credit_card_number, :expiration_year, :expiration_month)
+    params.require(:order).permit(:address_id, :customer_id, :grand_total, :item_id, :credit_card_number, :expiration_year, :expiration_month, :order_items)
   end
 
 end
