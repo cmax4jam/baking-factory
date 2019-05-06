@@ -1,1 +1,3 @@
 <%= render partial: "address_list", locals: {addresses: @active_addresses, state: 'active'} %>
+<p>&nbsp;</p>
+<%= render :partial => "partials/add_new_object", locals: {model_name: 'address'} %>

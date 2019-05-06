@@ -15,11 +15,14 @@
             <li data-activates="dropdown1" class="dropdown-button"><%= link_to admin_actions_path do %>Actions
                 <i class="material-icons right">arrow_drop_down</i>
             <% end %> </li>
+            <li><%= link_to 'Baking', baker_home_path %></li>
+            <li><%= link_to 'Shipping', shipper_home_path %></li>
 
         </ul>
         <ul class="side-nav right" id="mobile-demo">
         <li><%= link_to 'Insights', admin_insights_path %></li>
-        <li><a href="badges.html">Components</a></li>
+        <li><%= link_to 'Baking', baker_home_path %></li>
+        <li><%= link_to 'Shipping', shipper_home_path %></li>
         <% if logged_in? %>
             <li><%= link_to "LOGOUT", logout_path, class: "waves-effect waves-light btn", id: "loginout" %></li>
         <% else %>

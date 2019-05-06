@@ -1,4 +1,6 @@
-<%= f.input :customer_id, collection: Customer.active.alphabetical, include_blank: true, input_html: {class: "avg"} %>
+<% if current_user.role?(:admin)%>
+    <%= f.input :customer_id, collection: @all_customers, include_blank: true, input_html: {class: "avg"} %>
+<% end %>
 <%= f.input :recipient, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>
 <%= f.input :street_1, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>
 <%= f.input :street_2, label_html: {class: controller.action_name == 'edit' ? "active avg" : "avg"} %>

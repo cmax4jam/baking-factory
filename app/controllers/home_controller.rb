@@ -42,7 +42,7 @@ class HomeController < ApplicationController
       @customers = Customers.search(@query)
       @total_hits = @customers.size + @items.size
     else
-      @items.size
+      @total_hits = @items.size
     end
 
     # Multisearch

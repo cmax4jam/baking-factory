@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'baker_home' => 'home#baker_home', :as => :baker_home
   get 'shipper_home' => 'home#shipper_home', :as => :shipper_home
 
+
   get 'registered' => 'sessions#create', :as => :create_session
 
   get 'add_to_cart' => 'orders#add_to_cart', :as => :add_to_cart

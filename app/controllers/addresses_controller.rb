@@ -4,12 +4,13 @@ class AddressesController < ApplicationController
   authorize_resource
   
   def index
-    if current_user.role?(:customer)
+    if logged_in? && current_user.role?(:customer)
       @active_addresses = current_user.customer.addresses.by_recipient.paginate(:page => params[:page]).per_page(10)
       @inactive_addresses = current_user.customer.addresses.inactive.by_recipient.paginate(:page => params[:page]).per_page(10)
     else
       @active_addresses = Address.active.by_customer.by_recipient.paginate(:page => params[:page]).per_page(10)
       @inactive_addresses = Address.inactive.by_customer.by_recipient.paginate(:page => params[:page]).per_page(10)
+      @all_customers = Customer.active.alphabetical
     end
     
   end
@@ -26,9 +27,13 @@ class AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
+    if current_user.role?(:customer)
+      @address.customer = current_user.customer
+    end
+    @address.active = true
     
     if @address.save
-      redirect_to customer_path(@address.customer), notice: "The address was added to #{@address.customer.proper_name}."
+      redirect_to addresses_path, notice: "The address was added to #{@address.customer.proper_name}."
     else
       render action: 'new'
     end

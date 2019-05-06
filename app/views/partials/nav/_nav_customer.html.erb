@@ -3,12 +3,13 @@
   <li class="divider"></li>
   <li><%= link_to 'Order History', orders_path %></li>
   <li class="divider"></li>
-  <li><%= link_to 'Edit Profile', current_user.customer %></li>
+  <li><%= link_to 'Edit Profile', edit_customer_path(current_user.customer) %></li>
 </ul>
 <nav id="nav">
     <div class="container">
         <a href="#" data-activates="mobile-demo" class="button-collapse hide-on-med-and-up right"><i class="material-icons">menu</i></a>
         <ul class="hide-on-small-and-down">
+            <li><%= link_to 'For You', customer_home_path %></li>
             <li><%= link_to 'Our Products', items_path %></li>
             <li class="right" id="cart"><%= link_to new_order_path do %>
                 <i class="material-icons left cart">shopping_cart</i>(<%= cart_size %>)
@@ -16,16 +17,15 @@
             <li class="right my-account"><%= link_to current_user.customer, data: {activates: "dropdown1"}, class: "dropdown-button" do %>My Account
                 <i class="material-icons right">arrow_drop_down</i>
             <% end %> </li>
-            
         </ul>
         <ul class="side-nav right" id="mobile-demo">
-        <li><%= link_to 'Insights', admin_insights_path %></li>
-        <% if logged_in? %>
-            <li><%= link_to "LOGOUT", logout_path, class: "waves-effect waves-light btn", id: "loginout" %></li>
-        <% else %>
-            <li><%= link_to "LOGIN", login_path, class: "waves-effect waves-light btn", id: "loginout" %>
-            <%= link_to "REGISTER", new_customer_path, class: "waves-effect waves-light btn red"%></li>
-        <% end %>
+          <li><%= link_to 'Our Products', items_path %></li>
+          <% if logged_in? %>
+              <li><%= link_to "LOGOUT", logout_path, class: "waves-effect waves-light btn", id: "loginout" %></li>
+          <% else %>
+              <li><%= link_to "LOGIN", login_path, class: "waves-effect waves-light btn", id: "loginout" %>
+              <%= link_to "REGISTER", new_customer_path, class: "waves-effect waves-light btn red"%></li>
+          <% end %>
         </ul>
     </div>
 </nav>

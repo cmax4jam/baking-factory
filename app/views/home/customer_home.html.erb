@@ -1,1 +1,1 @@
-<h4>Hi, <%= current_user.customer.first_name %></h4>
+<%= render :partial => "partials/title_with_search", locals: {title: "Hi, #{current_user.customer.first_name}"} %>
