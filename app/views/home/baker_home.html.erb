@@ -1,0 +1,17 @@
+<div id="tabbed">
+    <tabs>
+        <tab name="Bread" v-bind:selected="true">
+            <%= render partial: "baking_list", locals: {items: @breads, category: 'bread'} %>
+        </tab>
+
+        <tab name="Muffins">
+            <%= render partial: "baking_list", locals: {items: @muffins, category: 'muffin'} %>
+        </tab>
+
+        <tab name="Pastries">
+            <%= render partial: "baking_list", locals: {items: @pastries, category: 'pastry'} %>
+        </tab>
+
+    </tabs>
+
+</div>

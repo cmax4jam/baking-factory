@@ -14,7 +14,10 @@
     <% end %>
     &nbsp;&nbsp;
   <% end %>
-  
+  <% if can?(:add_to_cart, Order) && controller.controller_name == 'items' %>
+    <%= link_to 'Add To Cart', add_to_cart_path(item_id: object.id), class:"btn waves-effect waves-light" %>
+  <% end %>
+
   <% if can?(:destroy, object) && controller.respond_to?(:destroy) %>
     <%= link_to(eval("#{model_name}_path(object)"), method: 'delete', data: {confirm: "Are you sure you want to permanently delete #{opt}"}, class: 'waves-effect waves-light btn btn-alert') do %>
         &nbsp;<%= "Delete #{opt}" %>
@@ -23,7 +26,7 @@
   </div>
   <div class="row">
     <% if can? :index, eval(model_name.capitalize) %>
-      <%= link_to(eval("#{model_name.pluralize}_path"), class: 'waves-effect waves-light btn') do %>
+      <%= link_to(eval("#{model_name.pluralize}_path"), class: 'waves-effect waves-light btn green') do %>
         &nbsp;Display All <%# model_name.pluralize.capitalize %>
       <% end %>
       &nbsp;&nbsp;

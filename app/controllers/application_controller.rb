@@ -43,4 +43,6 @@ class ApplicationController < ActionController::Base
   helper_method :get_list_of_items_in_cart
   helper_method :calculate_cart_shipping
 
+  # helper_method :create_baking_list_for
+
 end

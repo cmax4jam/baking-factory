@@ -78,6 +78,7 @@ class Ability
       can :show, Order
       can :show, Address
       can :shipper_home, :home
+      can :toggle_shipped, OrderItem
 
     else
       can :show, Item

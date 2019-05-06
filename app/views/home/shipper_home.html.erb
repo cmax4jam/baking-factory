@@ -1,0 +1,6 @@
+<h4>Orders to Ship:</h4>
+<% if @orders.empty?%>
+    <h5>There are currently no orders to ship.</h5>
+<% else %>
+    <%= render partial: "shipping_list", locals: {orders: @orders} %>
+<% end %>

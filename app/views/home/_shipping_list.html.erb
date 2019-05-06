@@ -1,0 +1,45 @@
+<% orders.each do |order| %>
+  <ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+        <% if order == orders.first %>
+            <div class="collapsible-header active"><i class="material-icons">credit_card</i>
+        <% else %>
+            <div class="collapsible-header"><i class="material-icons">credit_card</i>
+        <% end%>
+            <div>Order For: <%= order.customer.proper_name %> </div>
+            <div class="searchy"></div>
+            <div>Placed On: <%= order.created_at.strftime('%B %e, %Y at %l:%M%P') %></div>
+        </div>
+        <div class="collapsible-body">
+            <div class="row">
+                <h5>Shipping Address: </h5>
+                <%= render :partial => "partials/address_info", locals: {address: order.address} %>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th width="70">Item</th>
+                        <th width="50">Quantity</th>
+                        <th width="30">Shipped?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% order.order_items.each do |oitem| %>
+                        <tr>
+                            <td><%= oitem.item.name %></td>
+                            <td><%= oitem.quantity %></td>
+                            <td>
+                            <% if order.unshipped_items.size == 1 && oitem.shipped_on.nil? %>
+                                <%= link_to "#{oitem.shipped_on.nil? ? "Ready to Ship" : "Undo Shipment"}", toggle_shipped_path(order_item_id: oitem.id), class: "waves-effect waves-light btn #{oitem.shipped_on.nil? ? "green" : "red"}", data: {confirm: "Are you sure you want to finalize the shipment for this order?"} %>
+                            <% else %>
+                                <%= link_to "#{oitem.shipped_on.nil? ? "Ready to Ship" : "Undo Shipment"}", toggle_shipped_path(order_item_id: oitem.id), class: "waves-effect waves-light btn #{oitem.shipped_on.nil? ? "green" : "red"}" %>
+                            <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+    </li>
+  </ul>
+<% end %>

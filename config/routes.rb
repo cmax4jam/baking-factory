@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get 'add_to_cart' => 'orders#add_to_cart', :as => :add_to_cart
   get 'remove_from_cart' => 'orders#remove_from_cart', :as => :remove_from_cart
 
+  get 'toggle_shipped' => 'order_items#toggle_shipped', :as => :toggle_shipped
+
   get 'toggle_item_state' => 'items#toggle_item_state', :as => :toggle_item_state
   get 'toggle_customer_state' => 'customers#toggle_customer_state', :as => :toggle_customer_state
   get 'toggle_address_state' => 'addresses#toggle_address_state', :as => :toggle_address_state
