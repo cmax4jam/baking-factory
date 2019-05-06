@@ -71,6 +71,14 @@ $(document).ready(function(){
   $('.collapsible').collapsible();
 });
 
+$(document).ready(function(){
+  $('.materialboxed').materialbox();
+});
+
+$(document).ready(function(){
+  $('.slider').slider();
+});
+
 // Sticky footer js
 // Thanks to Charles Smith for this -- http://foundation.zurb.com/forum/posts/629-sticky-footer
 // $(window).bind("load", function () {

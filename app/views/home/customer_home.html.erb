@@ -3,10 +3,93 @@
 
 <div class="container">
 <%= render :partial => "partials/title_with_search", locals: {title: "Hi, #{current_user.customer.first_name}"} %>
+
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="https://www.dixiecrystals.com/sites/default/files/recipe/Apple-Sun-dried-Cherry-Coffeecake-imperial.jpg"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>Apple Cherry Bread</h3>
+          <h5 class="light grey-text text-lighten-3">Featured Item</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://d2gk7xgygi98cy.cloudfront.net/1915-3-large.jpg"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Check Out Our New Delicious Treat!</h3>
+          <h5 class="light grey-text text-lighten-3">Crossiants</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://img1.cookinglight.timeinc.net/sites/default/files/styles/medium_2x/public/1538687523/carrot-apple-muffins-with-orange-glaze-1811-p132.jpg?itok=bzKCblAl"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Happy Summer!</h3>
+          <h5 class="light grey-text text-lighten-3">Try our most popular summer treat</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://images.pond5.com/smiling-women-holding-baking-tray-footage-095688091_prevstill.jpeg"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>Contact us!</h3>
+          <h5 class="light grey-text text-lighten-3">We'd love to hear from you!</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
   <div class="row">
   </div>
   <div class="row">
     <div class="col s12 cards-container">
+       <div class="card blue-grey darken-1 hoverable">
+        <div class="card-image">
+            <%= link_to(image_tag(@suggested_item.picture_url.nil? ? 'no_image_found.png' : @suggested_item.picture_url, class: 'edit-item-picture'), item_path(@suggested_item)) %></td>
+        </div>
+         <div class="card-content white-text">
+           <span class="card-title"><%=@suggested_item.name%></span>
+           <p><%= @suggested_item.description %></p>
+         </div>
+         <div class="card-action">
+           <%= link_to 'More Info', item_path(@suggested_item) %>
+           <%= link_to 'Add To Cart', add_to_cart_path(item_id: @suggested_item.id) %>
+         </div>
+        </div>
+       <div class="card blue-grey darken-1 hoverable">
+         <div class="card-content white-text">
+           <span class="card-title">Card Title</span>
+           <p>I am a very simple card. I am good at containing small bits of information.</p>
+         </div>
+         <div class="card-action">
+           <a href="#">This is a link</a>
+           <a href="#">This is a link</a>
+         </div>
+        </div>
+       <div class="card blue-grey darken-1 hoverable">
+         <div class="card-content white-text">
+           <span class="card-title">Recent Orders</span>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th width="100"></th>
+                        <th width="100"></th>
+                        <th width="100"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @recent_orders.each do |order| %>
+                        <tr>
+                            <td><%= link_to(image_tag(order.order_items.first.item.picture_url.nil? ? 'no_image_found.png' : order.order_items.first.item.picture_url, id: 'topbar_image'), order_path(order)) %></td>
+                            <td>Items: <%= order.order_items.size %> </td>
+                            <td><%= link_to 'Reorder', add_to_cart_path(order_items: order.order_items.map(&:id)), class: "btn waves-effect waves-light green" %> </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+         </div>
+         <div class="card-action">
+           <%= link_to 'Other Orders', orders_path %>
+           <%= link_to 'Checkout', new_order_path %>
+         </div>
+        </div>
        <div class="card blue-grey darken-1 hoverable">
          <div class="card-content white-text">
            <span class="card-title">Card Title</span>
@@ -18,58 +101,27 @@
            <a href="#">This is a link</a>
          </div>
         </div>
-       <div class="card blue-grey darken-1">
+       <div class="card blue-grey darken-1 hoverable">
          <div class="card-content white-text">
-           <span class="card-title">Card Title</span>
-           <p>I am a very simple card. I am good at containing small bits of information.</p>
+           <span class="card-title">Your Account</span>
+           <p>Welcome back, <%= current_user.customer.first_name%>! Use the links below to edit the information in your account. Please use the contact us link below if you have any issues or questions.</p>
          </div>
          <div class="card-action">
-           <a href="#">This is a link</a>
-           <a href="#">This is a link</a>
+           <%= link_to 'Addresses', addresses_path %>
+           <%= link_to 'Edit Profile', edit_customer_path(current_user.customer) %>
          </div>
         </div>
-       <div class="card blue-grey darken-1">
-         <div class="card-content white-text">
-           <span class="card-title">Card Title</span>
-           <p>I am a very simple card. I am good at containing small bits of information.
-             I am convenient because I require little markup to use effectively.</p>
-         </div>
-         <div class="card-action">
-           <a href="#">This is a link</a>
-           <a href="#">This is a link</a>
-         </div>
+       <div class="card blue-grey darken-1 hoverable">
+         <div class="card-image">
+            <%= link_to(image_tag(@suggested_again.picture_url.nil? ? 'no_image_found.png' : @suggested_again.picture_url, class: 'edit-item-picture'), item_path(@suggested_again)) %></td>
         </div>
-       <div class="card blue-grey darken-1">
          <div class="card-content white-text">
-           <span class="card-title">Card Title</span>
-           <p>I am a very simple card. I am good at containing small bits of information.
-             I am convenient because I require little markup to use effectively.</p>
+           <span class="card-title"><%=@suggested_again.name%></span>
+           <p><%= @suggested_again.description %></p>
          </div>
          <div class="card-action">
-           <a href="#">This is a link</a>
-           <a href="#">This is a link</a>
-         </div>
-        </div>
-       <div class="card blue-grey darken-1">
-         <div class="card-content white-text">
-           <span class="card-title">Card Title</span>
-           <p>I am a very simple card. I am good at containing small bits of information.
-             I am convenient because I require little markup to use effectively.</p>
-         </div>
-         <div class="card-action">
-           <a href="#">This is a link</a>
-           <a href="#">This is a link</a>
-         </div>
-        </div>
-       <div class="card blue-grey darken-1">
-         <div class="card-content white-text">
-           <span class="card-title">Card Title</span>
-           <p>I am a very simple card. I am good at containing small bits of information.
-             I am convenient because I require little markup to use effectively.</p>
-         </div>
-         <div class="card-action">
-           <a href="#">This is a link</a>
-           <a href="#">This is a link</a>
+           <%= link_to 'More Info', item_path(@suggested_again) %>
+           <%= link_to 'Add To Cart', add_to_cart_path(item_id: @suggested_again.id) %>
          </div>
         </div>
     </div>

@@ -21,6 +21,9 @@ class HomeController < ApplicationController
   end
 
   def customer_home
+    @recent_orders = current_user.customer.orders.chronological.limit(3)
+    @suggested_item = Item.order(1).first
+    @suggested_again = Item.order(2).first
   end
 
   def baker_home
