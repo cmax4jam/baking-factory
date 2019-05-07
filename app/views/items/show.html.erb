@@ -2,11 +2,11 @@
   <div class="col s7">
     <%= render partial: "item_details" %>
   </div>
-  <% if current_user.role?(:customer) %>
+  <% if logged_in? && current_user.role?(:customer) %>
     <div class="col s5">
       <%= render partial: "similar_items", locals: {similar_items: @similar_items}  unless @similar_items.empty?%>
     </div>
-  <% elsif current_user.role?(:admin) %>
+  <% elsif logged_in? && current_user.role?(:admin) %>
     <div class="col s5">
       <%= render partial: "cost_history" %>
     </div>
