@@ -49,6 +49,10 @@ gem 'pg_search', '2.1.2'
 gem 'will_paginate', '3.1.6'
 gem 'vuejs-rails', '2.5.13'
 gem 'best_in_place', '~> 3.0.1'
+gem 'hirb', '0.7.3'
+gem 'faker', '1.8.7'
+gem 'populator', '1.0.0'
+gem 'factory_bot_rails', '4.8.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
